@@ -40,11 +40,7 @@ func (c *DescuentoMatriculaController) Post() {
 		} else {
 			c.Data["json"] = err.Error()
 		}
-		alertdb := structs.Map(err)
-			var code string
-			formatdata.FillStruct(alertdb["Code"], &code)
-			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
-			c.Data["json"] = alert
+		
 
 	} else {
 		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
