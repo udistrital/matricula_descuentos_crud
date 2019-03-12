@@ -7,84 +7,94 @@ import (
 
 func init() {
 
-	beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"],
-		beego.ControllerComments{
-			Method: "Post",
-			Router: `/`,
-			AllowHTTPMethods: []string{"post"},
-			MethodParams: param.Make(),
-			Params: nil})
+    beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"],
+        beego.ControllerComments{
+            Method: "Post",
+            Router: `/`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"],
-		beego.ControllerComments{
-			Method: "GetAll",
-			Router: `/`,
-			AllowHTTPMethods: []string{"get"},
-			MethodParams: param.Make(),
-			Params: nil})
+    beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"],
+        beego.ControllerComments{
+            Method: "GetAll",
+            Router: `/`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"],
-		beego.ControllerComments{
-			Method: "GetOne",
-			Router: `/:id`,
-			AllowHTTPMethods: []string{"get"},
-			MethodParams: param.Make(),
-			Params: nil})
+    beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"],
+        beego.ControllerComments{
+            Method: "GetOne",
+            Router: `/:id`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"],
-		beego.ControllerComments{
-			Method: "Put",
-			Router: `/:id`,
-			AllowHTTPMethods: []string{"put"},
-			MethodParams: param.Make(),
-			Params: nil})
+    beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"],
+        beego.ControllerComments{
+            Method: "Put",
+            Router: `/:id`,
+            AllowHTTPMethods: []string{"put"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"],
-		beego.ControllerComments{
-			Method: "Delete",
-			Router: `/:id`,
-			AllowHTTPMethods: []string{"delete"},
-			MethodParams: param.Make(),
-			Params: nil})
+    beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:DescuentoMatriculaController"],
+        beego.ControllerComments{
+            Method: "Delete",
+            Router: `/:id`,
+            AllowHTTPMethods: []string{"delete"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"],
-		beego.ControllerComments{
-			Method: "Post",
-			Router: `/`,
-			AllowHTTPMethods: []string{"post"},
-			MethodParams: param.Make(),
-			Params: nil})
+    beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"],
+        beego.ControllerComments{
+            Method: "Post",
+            Router: `/`,
+            AllowHTTPMethods: []string{"post"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"],
-		beego.ControllerComments{
-			Method: "GetAll",
-			Router: `/`,
-			AllowHTTPMethods: []string{"get"},
-			MethodParams: param.Make(),
-			Params: nil})
+    beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"],
+        beego.ControllerComments{
+            Method: "GetAll",
+            Router: `/`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"],
-		beego.ControllerComments{
-			Method: "GetOne",
-			Router: `/:id`,
-			AllowHTTPMethods: []string{"get"},
-			MethodParams: param.Make(),
-			Params: nil})
+    beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"],
+        beego.ControllerComments{
+            Method: "GetOne",
+            Router: `/:id`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"],
-		beego.ControllerComments{
-			Method: "Put",
-			Router: `/:id`,
-			AllowHTTPMethods: []string{"put"},
-			MethodParams: param.Make(),
-			Params: nil})
+    beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"],
+        beego.ControllerComments{
+            Method: "Put",
+            Router: `/:id`,
+            AllowHTTPMethods: []string{"put"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
-	beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"],
-		beego.ControllerComments{
-			Method: "Delete",
-			Router: `/:id`,
-			AllowHTTPMethods: []string{"delete"},
-			MethodParams: param.Make(),
-			Params: nil})
+    beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"] = append(beego.GlobalControllerRouter["github.com/udistrital/matricula_descuentos_crud/controllers:TipoDescuentoMatriculaController"],
+        beego.ControllerComments{
+            Method: "Delete",
+            Router: `/:id`,
+            AllowHTTPMethods: []string{"delete"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
 
 }

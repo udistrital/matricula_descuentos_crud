@@ -246,21 +246,24 @@ definitions:
     title: DescuentoMatricula
     type: object
     properties:
+      Autorizado:
+        type: boolean
       Descuento:
         type: number
         format: double
       Enlace:
-        type: string
+        type: integer
+        format: int64
       Ente:
         type: integer
         format: int64
       Id:
         type: integer
         format: int64
-      IdTipoDescuentoMatricula:
-        $ref: '#/definitions/models.TipoDescuentoMatricula'
       Metadatos:
         type: string
+      TipoDescuentoMatricula:
+        $ref: '#/definitions/models.TipoDescuentoMatricula'
   models.TipoDescuentoMatricula:
     title: TipoDescuentoMatricula
     type: object
@@ -280,9 +283,9 @@ definitions:
         type: number
         format: double
 tags:
-- name: tipo_descuento_matricula
-  description: |
-    TipoDescuentoMatriculaController operations for TipoDescuentoMatricula
 - name: descuento_matricula
   description: |
     DescuentoMatriculaController operations for DescuentoMatricula
+- name: tipo_descuento_matricula
+  description: |
+    TipoDescuentoMatriculaController operations for TipoDescuentoMatricula

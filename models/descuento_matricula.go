@@ -10,12 +10,13 @@ import (
 )
 
 type DescuentoMatricula struct {
-	Id                       int                     `orm:"column(id);pk;auto"`
-	Metadatos                string                  `orm:"column(metadatos);type(json);null"`
-	Enlace                   string                  `orm:"column(enlace);null"`
-	Descuento                float64                 `orm:"column(descuento);null"`
-	Ente                     int                     `orm:"column(ente);null"`
-	IdTipoDescuentoMatricula *TipoDescuentoMatricula `orm:"column(id_tipo_descuento_matricula);rel(fk)"`
+	Id                     int                     `orm:"column(id);pk;auto"`
+	Metadatos              string                  `orm:"column(metadatos);type(json);null"`
+	Enlace                 int		               `orm:"column(enlace);null"`
+	Descuento              float64                 `orm:"column(descuento);null"`
+	Ente                   int                     `orm:"column(ente)"`
+	TipoDescuentoMatricula *TipoDescuentoMatricula `orm:"column(tipo_descuento_matricula);rel(fk)"`
+	Autorizado				bool					`orm:"column(autorizado)"`
 }
 
 func (t *DescuentoMatricula) TableName() string {

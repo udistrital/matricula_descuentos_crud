@@ -10,7 +10,7 @@ import (
 )
 
 type TipoDescuentoMatricula struct {
-	Id                int     `orm:"column(id);pk;auto"`
+	Id                int     `orm:"column(id);pk"`
 	Nombre            string  `orm:"column(nombre)"`
 	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
 	Activo            bool    `orm:"column(activo)"`

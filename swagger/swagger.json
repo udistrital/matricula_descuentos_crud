@@ -367,12 +367,16 @@
             "title": "DescuentoMatricula",
             "type": "object",
             "properties": {
+                "Autorizado": {
+                    "type": "boolean"
+                },
                 "Descuento": {
                     "type": "number",
                     "format": "double"
                 },
                 "Enlace": {
-                    "type": "string"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "Ente": {
                     "type": "integer",
@@ -382,11 +386,11 @@
                     "type": "integer",
                     "format": "int64"
                 },
-                "IdTipoDescuentoMatricula": {
-                    "$ref": "#/definitions/models.TipoDescuentoMatricula"
-                },
                 "Metadatos": {
                     "type": "string"
+                },
+                "TipoDescuentoMatricula": {
+                    "$ref": "#/definitions/models.TipoDescuentoMatricula"
                 }
             }
         },
@@ -419,12 +423,12 @@
     },
     "tags": [
         {
-            "name": "tipo_descuento_matricula",
-            "description": "TipoDescuentoMatriculaController operations for TipoDescuentoMatricula\n"
-        },
-        {
             "name": "descuento_matricula",
             "description": "DescuentoMatriculaController operations for DescuentoMatricula\n"
+        },
+        {
+            "name": "tipo_descuento_matricula",
+            "description": "TipoDescuentoMatriculaController operations for TipoDescuentoMatricula\n"
         }
     ]
 }
