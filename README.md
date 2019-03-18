@@ -26,4 +26,4 @@ Definir los valores de las siguientes variables de entorno:
 Ejemplo: API_MATRICULA_DESCUENTOS_HTTP_PORT=8083 MATRICULA_DESCUENTOS_CRUD__PGUSER=user MATRICULA_DESCUENTOS_CRUD__PGPASS=password MATRICULA_DESCUENTOS_CRUD__PGURLS=localhost MATRICULA_DESCUENTOS_CRUD__PGDB=udistrital_core_db MATRICULA_DESCUENTOS_CRUD__SCHEMA=core_new bee run
 
 ## MODELO
-![image](https://user-images.githubusercontent.com/14035745/42359402-4cd653f4-80a7-11e8-8b90-61e30a20bbaf.png).
+![image](https://github.com/udistrital/matricula_descuentos_crud/blob/develop/Descuentos_Matricula.svg).
