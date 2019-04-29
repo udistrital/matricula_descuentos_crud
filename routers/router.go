@@ -8,9 +8,8 @@
 package routers
 
 import (
-	"github.com/udistrital/matricula_descuentos_crud/controllers"
-
 	"github.com/astaxie/beego"
+	"github.com/planesticud/matricula_descuentos_crud/controllers"
 )
 
 func init() {
