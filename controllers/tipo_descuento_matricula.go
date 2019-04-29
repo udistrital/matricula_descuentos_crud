@@ -3,7 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/matricula_descuentos_crud/models"
+	"github.com/planesticud/matricula_descuentos_crud/models"
 	"strconv"
 	"strings"
 

@@ -10,7 +10,7 @@ Go version >= 1.8.
 
 ## Preparación:
     Para usar el API, usar el comando:
-        - go get github.com/udistrital/matricula_descuentos_crud
+        - go get github.com/planesticud/matricula_descuentos_crud
 
 ## Run
 
@@ -23,7 +23,7 @@ Definir los valores de las siguientes variables de entorno:
  - `MATRICULA_DESCUENTOS_CRUD__PGDB`: Nombre de la base de datos
  - `MATRICULA_DESCUENTOS_CRUD__SCHEMA`: Esquema a utilizar en la base de datos
 
-Ejemplo: API_MATRICULA_DESCUENTOS_HTTP_PORT=8083 MATRICULA_DESCUENTOS_CRUD__PGUSER=user MATRICULA_DESCUENTOS_CRUD__PGPASS=password MATRICULA_DESCUENTOS_CRUD__PGURLS=localhost MATRICULA_DESCUENTOS_CRUD__PGDB=udistrital_core_db MATRICULA_DESCUENTOS_CRUD__SCHEMA=core_new bee run
+Ejemplo: API_MATRICULA_DESCUENTOS_HTTP_PORT=8083 MATRICULA_DESCUENTOS_CRUD__PGUSER=user MATRICULA_DESCUENTOS_CRUD__PGPASS=password MATRICULA_DESCUENTOS_CRUD__PGURLS=localhost MATRICULA_DESCUENTOS_CRUD__PGDB=planesticud_core_db MATRICULA_DESCUENTOS_CRUD__SCHEMA=core_new bee run
 
 ## MODELO
-![image](https://github.com/udistrital/matricula_descuentos_crud/blob/develop/Descuentos_Matricula.svg).
+![image](https://github.com/planesticud/matricula_descuentos_crud/blob/develop/Descuentos_Matricula.svg).
