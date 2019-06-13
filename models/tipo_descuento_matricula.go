@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -16,6 +17,10 @@ type TipoDescuentoMatricula struct {
 	Activo            bool    `orm:"column(activo)"`
 	NumeroOrden       float64 `orm:"column(numero_orden);null"`
 	Descripcion       string  `orm:"column(descripcion);null"`
+	Periodo		  int	  `orm:"column(periodo)"`
+	Descuento	  int	  `orm:"column(descuento)"`
+	Creado		  time.Time        `orm:"column(creado);type(date)"`
+	Modificado	  time.Time        `orm:"column(modificado);type(date)"`
 }
 
 func (t *TipoDescuentoMatricula) TableName() string {

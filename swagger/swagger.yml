@@ -248,10 +248,13 @@ definitions:
     properties:
       Autorizado:
         type: boolean
+      Creado:
+        type: string
+        format: datetime
       Descuento:
         type: number
         format: double
-      Enlace:
+      Documento:
         type: integer
         format: int64
       Ente:
@@ -260,8 +263,9 @@ definitions:
       Id:
         type: integer
         format: int64
-      Metadatos:
+      Modificado:
         type: string
+        format: datetime
       TipoDescuentoMatricula:
         $ref: '#/definitions/models.TipoDescuentoMatricula'
   models.TipoDescuentoMatricula:
@@ -272,16 +276,28 @@ definitions:
         type: boolean
       CodigoAbreviacion:
         type: string
+      Creado:
+        type: string
+        format: datetime
       Descripcion:
         type: string
+      Descuento:
+        type: integer
+        format: int64
       Id:
         type: integer
         format: int64
+      Modificado:
+        type: string
+        format: datetime
       Nombre:
         type: string
       NumeroOrden:
         type: number
         format: double
+      Periodo:
+        type: integer
+        format: int64
 tags:
 - name: descuento_matricula
   description: |

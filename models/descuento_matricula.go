@@ -5,18 +5,20 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type DescuentoMatricula struct {
-	Id                     int                     `orm:"column(id);pk;auto"`
-	Metadatos              string                  `orm:"column(metadatos);type(json);null"`
-	Enlace                 int		               `orm:"column(enlace);null"`
-	Descuento              float64                 `orm:"column(descuento);null"`
-	Ente                   int                     `orm:"column(ente)"`
-	TipoDescuentoMatricula *TipoDescuentoMatricula `orm:"column(tipo_descuento_matricula);rel(fk)"`
-	Autorizado				bool					`orm:"column(autorizado)"`
+	Id                     	int              `orm:"column(id);pk;auto"`
+	Documento               int		 `orm:"column(documento);null"`
+	Descuento              	float64          `orm:"column(descuento);null"`
+	Ente                   	int              `orm:"column(ente)"`
+	TipoDescuentoMatricula 	*TipoDescuentoMatricula `orm:"column(tipo_descuento_matricula);rel(fk)"`
+	Autorizado		bool		 `orm:"column(autorizado)"`
+	Creado			time.Time        `orm:"column(creado);type(date)"`
+	Modificado		time.Time        `orm:"column(modificado);type(date)"`
 }
 
 func (t *DescuentoMatricula) TableName() string {
