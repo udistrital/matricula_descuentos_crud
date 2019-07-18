@@ -5,52 +5,55 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
-type DescuentoMatricula struct {
-	Id                       int                     `orm:"column(id);pk;auto"`
-	Metadatos                string                  `orm:"column(metadatos);type(json);null"`
-	Enlace                   string                  `orm:"column(enlace);null"`
-	Descuento                float64                 `orm:"column(descuento);null"`
-	Ente                     int                     `orm:"column(ente);null"`
-	IdTipoDescuentoMatricula *TipoDescuentoMatricula `orm:"column(id_tipo_descuento_matricula);rel(fk)"`
+type DescuentosDependencia struct {
+	Id                  int            `orm:"column(id);pk"`
+	DependenciaId       int            `orm:"column(dependencia_id)"`
+	PeriodoId           int            `orm:"column(periodo_id)"`
+	PorcentajeDescuento float64        `orm:"column(porcentaje_descuento)"`
+	Activo              bool           `orm:"column(activo)"`
+	FechaCreacion       time.Time      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion   time.Time      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	TipoDescuentoId     *TipoDescuento `orm:"column(tipo_descuento_id);rel(fk)"`
 }
 
-func (t *DescuentoMatricula) TableName() string {
-	return "descuento_matricula"
+func (t *DescuentosDependencia) TableName() string {
+	return "descuentos_dependencia"
 }
 
 func init() {
-	orm.RegisterModel(new(DescuentoMatricula))
+	orm.RegisterModel(new(DescuentosDependencia))
 }
 
-// AddDescuentoMatricula insert a new DescuentoMatricula into database and returns
+// AddDescuentosDependencia insert a new DescuentosDependencia into database and returns
 // last inserted Id on success.
-func AddDescuentoMatricula(m *DescuentoMatricula) (id int64, err error) {
+func AddDescuentosDependencia(m *DescuentosDependencia) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetDescuentoMatriculaById retrieves DescuentoMatricula by Id. Returns error if
+// GetDescuentosDependenciaById retrieves DescuentosDependencia by Id. Returns error if
 // Id doesn't exist
-func GetDescuentoMatriculaById(id int) (v *DescuentoMatricula, err error) {
+func GetDescuentosDependenciaById(id int) (v *DescuentosDependencia, err error) {
 	o := orm.NewOrm()
-	v = &DescuentoMatricula{Id: id}
+	v = &DescuentosDependencia{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllDescuentoMatricula retrieves all DescuentoMatricula matches certain condition. Returns empty list if
+// GetAllDescuentosDependencia retrieves all DescuentosDependencia matches certain condition. Returns empty list if
 // no records exist
-func GetAllDescuentoMatricula(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllDescuentosDependencia(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(DescuentoMatricula)).RelatedSel()
+	qs := o.QueryTable(new(DescuentosDependencia))
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -100,7 +103,7 @@ func GetAllDescuentoMatricula(query map[string]string, fields []string, sortby [
 		}
 	}
 
-	var l []DescuentoMatricula
+	var l []DescuentosDependencia
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -123,11 +126,11 @@ func GetAllDescuentoMatricula(query map[string]string, fields []string, sortby [
 	return nil, err
 }
 
-// UpdateDescuentoMatricula updates DescuentoMatricula by Id and returns error if
+// UpdateDescuentosDependencia updates DescuentosDependencia by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateDescuentoMatriculaById(m *DescuentoMatricula) (err error) {
+func UpdateDescuentosDependenciaById(m *DescuentosDependencia) (err error) {
 	o := orm.NewOrm()
-	v := DescuentoMatricula{Id: m.Id}
+	v := DescuentosDependencia{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -138,15 +141,15 @@ func UpdateDescuentoMatriculaById(m *DescuentoMatricula) (err error) {
 	return
 }
 
-// DeleteDescuentoMatricula deletes DescuentoMatricula by Id and returns error if
+// DeleteDescuentosDependencia deletes DescuentosDependencia by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteDescuentoMatricula(id int) (err error) {
+func DeleteDescuentosDependencia(id int) (err error) {
 	o := orm.NewOrm()
-	v := DescuentoMatricula{Id: id}
+	v := DescuentosDependencia{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&DescuentoMatricula{Id: id}); err == nil {
+		if num, err = o.Delete(&DescuentosDependencia{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}
