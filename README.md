@@ -25,3 +25,5 @@ Ejemplo: API_DESCUENTO_ACADEMICO_CRUD_HTTP_PORT=8080 DESCUENTO_ACADEMICO_CRUD__P
 ## MODELO DE DATOS
 
 Como modelos de datos del Api se utilizo el siguiente [Modelo](https://drive.google.com/drive/folders/1oHPdamuQ1XukHKz34DrqVioziOlUe9hF)
+
+![image](https://github.com/udistrital/descuento_academico_crud/blob/Version11/descuento_matriculaV2.png)
