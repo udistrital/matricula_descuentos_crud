@@ -11,7 +11,7 @@ import (
 )
 
 type DescuentosDependencia struct {
-	Id                  int            `orm:"column(id);pk"`
+	Id                  int            `orm:"column(id);pk;auto"`
 	DependenciaId       int            `orm:"column(dependencia_id)"`
 	PeriodoId           int            `orm:"column(periodo_id)"`
 	PorcentajeDescuento float64        `orm:"column(porcentaje_descuento)"`

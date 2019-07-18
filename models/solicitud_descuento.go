@@ -11,7 +11,7 @@ import (
 )
 
 type SolicitudDescuento struct {
-	Id                      int                    `orm:"column(id);pk"`
+	Id                      int                    `orm:"column(id);pk;auto"`
 	PersonaId               int                    `orm:"column(persona_id);null"`
 	PeriodoId               int                    `orm:"column(periodo_id)"`
 	Estado                  string                 `orm:"column(estado)"`
