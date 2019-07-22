@@ -15,13 +15,13 @@
     },
     "basePath": "/v1",
     "paths": {
-        "/descuento_matricula/": {
+        "/descuentos_dependencia/": {
             "get": {
                 "tags": [
-                    "descuento_matricula"
+                    "descuentos_dependencia"
                 ],
-                "description": "get DescuentoMatricula",
-                "operationId": "DescuentoMatriculaController.Get All",
+                "description": "get DescuentosDependencia",
+                "operationId": "DescuentosDependenciaController.Get All",
                 "parameters": [
                     {
                         "in": "query",
@@ -64,48 +64,48 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.DescuentoMatricula"
+                            "$ref": "#/definitions/models.DescuentosDependencia"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
             "post": {
                 "tags": [
-                    "descuento_matricula"
+                    "descuentos_dependencia"
                 ],
-                "description": "create DescuentoMatricula",
-                "operationId": "DescuentoMatriculaController.Post",
+                "description": "create DescuentosDependencia",
+                "operationId": "DescuentosDependenciaController.Post",
                 "parameters": [
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "body for DescuentoMatricula content",
+                        "description": "body for DescuentosDependencia content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.DescuentoMatricula"
+                            "$ref": "#/definitions/models.DescuentosDependencia"
                         }
                     }
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.DescuentoMatricula"
+                        "description": "{int} models.DescuentosDependencia"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
         },
-        "/descuento_matricula/{id}": {
+        "/descuentos_dependencia/{id}": {
             "get": {
                 "tags": [
-                    "descuento_matricula"
+                    "descuentos_dependencia"
                 ],
-                "description": "get DescuentoMatricula by id",
-                "operationId": "DescuentoMatriculaController.Get One",
+                "description": "get DescuentosDependencia by id",
+                "operationId": "DescuentosDependenciaController.Get One",
                 "parameters": [
                     {
                         "in": "path",
@@ -119,20 +119,20 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.DescuentoMatricula"
+                            "$ref": "#/definitions/models.DescuentosDependencia"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
             "put": {
                 "tags": [
-                    "descuento_matricula"
+                    "descuentos_dependencia"
                 ],
-                "description": "update the DescuentoMatricula",
-                "operationId": "DescuentoMatriculaController.Put",
+                "description": "update the DescuentosDependencia",
+                "operationId": "DescuentosDependenciaController.Put",
                 "parameters": [
                     {
                         "in": "path",
@@ -144,10 +144,10 @@
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "body for DescuentoMatricula content",
+                        "description": "body for DescuentosDependencia content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.DescuentoMatricula"
+                            "$ref": "#/definitions/models.DescuentosDependencia"
                         }
                     }
                 ],
@@ -155,20 +155,20 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.DescuentoMatricula"
+                            "$ref": "#/definitions/models.DescuentosDependencia"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
             "delete": {
                 "tags": [
-                    "descuento_matricula"
+                    "descuentos_dependencia"
                 ],
-                "description": "delete the DescuentoMatricula",
-                "operationId": "DescuentoMatriculaController.Delete",
+                "description": "delete the DescuentosDependencia",
+                "operationId": "DescuentosDependenciaController.Delete",
                 "parameters": [
                     {
                         "in": "path",
@@ -182,19 +182,19 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
         },
-        "/tipo_descuento_matricula/": {
+        "/requisito/": {
             "get": {
                 "tags": [
-                    "tipo_descuento_matricula"
+                    "requisito"
                 ],
-                "description": "get TipoDescuentoMatricula",
-                "operationId": "TipoDescuentoMatriculaController.Get All",
+                "description": "get Requisito",
+                "operationId": "RequisitoController.Get All",
                 "parameters": [
                     {
                         "in": "query",
@@ -237,48 +237,48 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.TipoDescuentoMatricula"
+                            "$ref": "#/definitions/models.Requisito"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
             "post": {
                 "tags": [
-                    "tipo_descuento_matricula"
+                    "requisito"
                 ],
-                "description": "create TipoDescuentoMatricula",
-                "operationId": "TipoDescuentoMatriculaController.Post",
+                "description": "create Requisito",
+                "operationId": "RequisitoController.Post",
                 "parameters": [
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "body for TipoDescuentoMatricula content",
+                        "description": "body for Requisito content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.TipoDescuentoMatricula"
+                            "$ref": "#/definitions/models.Requisito"
                         }
                     }
                 ],
                 "responses": {
                     "201": {
-                        "description": "{int} models.TipoDescuentoMatricula"
+                        "description": "{int} models.Requisito"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
         },
-        "/tipo_descuento_matricula/{id}": {
+        "/requisito/{id}": {
             "get": {
                 "tags": [
-                    "tipo_descuento_matricula"
+                    "requisito"
                 ],
-                "description": "get TipoDescuentoMatricula by id",
-                "operationId": "TipoDescuentoMatriculaController.Get One",
+                "description": "get Requisito by id",
+                "operationId": "RequisitoController.Get One",
                 "parameters": [
                     {
                         "in": "path",
@@ -292,20 +292,20 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.TipoDescuentoMatricula"
+                            "$ref": "#/definitions/models.Requisito"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
             "put": {
                 "tags": [
-                    "tipo_descuento_matricula"
+                    "requisito"
                 ],
-                "description": "update the TipoDescuentoMatricula",
-                "operationId": "TipoDescuentoMatriculaController.Put",
+                "description": "update the Requisito",
+                "operationId": "RequisitoController.Put",
                 "parameters": [
                     {
                         "in": "path",
@@ -317,10 +317,10 @@
                     {
                         "in": "body",
                         "name": "body",
-                        "description": "body for TipoDescuentoMatricula content",
+                        "description": "body for Requisito content",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.TipoDescuentoMatricula"
+                            "$ref": "#/definitions/models.Requisito"
                         }
                     }
                 ],
@@ -328,20 +328,20 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#/definitions/models.TipoDescuentoMatricula"
+                            "$ref": "#/definitions/models.Requisito"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
             "delete": {
                 "tags": [
-                    "tipo_descuento_matricula"
+                    "requisito"
                 ],
-                "description": "delete the TipoDescuentoMatricula",
-                "operationId": "TipoDescuentoMatriculaController.Delete",
+                "description": "delete the Requisito",
+                "operationId": "RequisitoController.Delete",
                 "parameters": [
                     {
                         "in": "path",
@@ -355,52 +355,1090 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/requisito_tipo_descuento/": {
+            "get": {
+                "tags": [
+                    "requisito_tipo_descuento"
+                ],
+                "description": "get RequisitoTipoDescuento",
+                "operationId": "RequisitoTipoDescuentoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RequisitoTipoDescuento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "requisito_tipo_descuento"
+                ],
+                "description": "create RequisitoTipoDescuento",
+                "operationId": "RequisitoTipoDescuentoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RequisitoTipoDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RequisitoTipoDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.RequisitoTipoDescuento"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/requisito_tipo_descuento/{id}": {
+            "get": {
+                "tags": [
+                    "requisito_tipo_descuento"
+                ],
+                "description": "get RequisitoTipoDescuento by id",
+                "operationId": "RequisitoTipoDescuentoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RequisitoTipoDescuento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "requisito_tipo_descuento"
+                ],
+                "description": "update the RequisitoTipoDescuento",
+                "operationId": "RequisitoTipoDescuentoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for RequisitoTipoDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.RequisitoTipoDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.RequisitoTipoDescuento"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "requisito_tipo_descuento"
+                ],
+                "description": "delete the RequisitoTipoDescuento",
+                "operationId": "RequisitoTipoDescuentoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/solicitud_descuento/": {
+            "get": {
+                "tags": [
+                    "solicitud_descuento"
+                ],
+                "description": "get SolicitudDescuento",
+                "operationId": "SolicitudDescuentoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SolicitudDescuento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "solicitud_descuento"
+                ],
+                "description": "create SolicitudDescuento",
+                "operationId": "SolicitudDescuentoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SolicitudDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SolicitudDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.SolicitudDescuento"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/solicitud_descuento/{id}": {
+            "get": {
+                "tags": [
+                    "solicitud_descuento"
+                ],
+                "description": "get SolicitudDescuento by id",
+                "operationId": "SolicitudDescuentoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SolicitudDescuento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "solicitud_descuento"
+                ],
+                "description": "update the SolicitudDescuento",
+                "operationId": "SolicitudDescuentoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SolicitudDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SolicitudDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SolicitudDescuento"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "solicitud_descuento"
+                ],
+                "description": "delete the SolicitudDescuento",
+                "operationId": "SolicitudDescuentoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/soporte_descuento/": {
+            "get": {
+                "tags": [
+                    "soporte_descuento"
+                ],
+                "description": "get SoporteDescuento",
+                "operationId": "SoporteDescuentoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SoporteDescuento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "soporte_descuento"
+                ],
+                "description": "create SoporteDescuento",
+                "operationId": "SoporteDescuentoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SoporteDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SoporteDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.SoporteDescuento"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/soporte_descuento/{id}": {
+            "get": {
+                "tags": [
+                    "soporte_descuento"
+                ],
+                "description": "get SoporteDescuento by id",
+                "operationId": "SoporteDescuentoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SoporteDescuento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "soporte_descuento"
+                ],
+                "description": "update the SoporteDescuento",
+                "operationId": "SoporteDescuentoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SoporteDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SoporteDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SoporteDescuento"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "soporte_descuento"
+                ],
+                "description": "delete the SoporteDescuento",
+                "operationId": "SoporteDescuentoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/tipo_descuento/": {
+            "get": {
+                "tags": [
+                    "tipo_descuento"
+                ],
+                "description": "get TipoDescuento",
+                "operationId": "TipoDescuentoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDescuento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "tipo_descuento"
+                ],
+                "description": "create TipoDescuento",
+                "operationId": "TipoDescuentoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TipoDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TipoDescuento"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/tipo_descuento/{id}": {
+            "get": {
+                "tags": [
+                    "tipo_descuento"
+                ],
+                "description": "get TipoDescuento by id",
+                "operationId": "TipoDescuentoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDescuento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "tipo_descuento"
+                ],
+                "description": "update the TipoDescuento",
+                "operationId": "TipoDescuentoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TipoDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDescuento"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "tipo_descuento"
+                ],
+                "description": "delete the TipoDescuento",
+                "operationId": "TipoDescuentoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/tipo_duracion/": {
+            "get": {
+                "tags": [
+                    "tipo_duracion"
+                ],
+                "description": "get TipoDuracion",
+                "operationId": "TipoDuracionController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDuracion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "tipo_duracion"
+                ],
+                "description": "create TipoDuracion",
+                "operationId": "TipoDuracionController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TipoDuracion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDuracion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TipoDuracion"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/tipo_duracion/{id}": {
+            "get": {
+                "tags": [
+                    "tipo_duracion"
+                ],
+                "description": "get TipoDuracion by id",
+                "operationId": "TipoDuracionController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDuracion"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "tipo_duracion"
+                ],
+                "description": "update the TipoDuracion",
+                "operationId": "TipoDuracionController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TipoDuracion content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDuracion"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TipoDuracion"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "tipo_duracion"
+                ],
+                "description": "delete the TipoDuracion",
+                "operationId": "TipoDuracionController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/validacion_descuento/": {
+            "get": {
+                "tags": [
+                    "validacion_descuento"
+                ],
+                "description": "get ValidacionDescuento",
+                "operationId": "ValidacionDescuentoController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ValidacionDescuento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "validacion_descuento"
+                ],
+                "description": "create ValidacionDescuento",
+                "operationId": "ValidacionDescuentoController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ValidacionDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ValidacionDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.ValidacionDescuento"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/validacion_descuento/{id}": {
+            "get": {
+                "tags": [
+                    "validacion_descuento"
+                ],
+                "description": "get ValidacionDescuento by id",
+                "operationId": "ValidacionDescuentoController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ValidacionDescuento"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "validacion_descuento"
+                ],
+                "description": "update the ValidacionDescuento",
+                "operationId": "ValidacionDescuentoController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for ValidacionDescuento content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ValidacionDescuento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.ValidacionDescuento"
+                        }
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "validacion_descuento"
+                ],
+                "description": "delete the ValidacionDescuento",
+                "operationId": "ValidacionDescuentoController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
         }
     },
     "definitions": {
-        "models.DescuentoMatricula": {
-            "title": "DescuentoMatricula",
+        "models.DescuentosDependencia": {
+            "title": "DescuentosDependencia",
             "type": "object",
             "properties": {
-                "Autorizado": {
+                "Activo": {
                     "type": "boolean"
                 },
-                "Creado": {
+                "DependenciaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaCreacion": {
                     "type": "string",
                     "format": "datetime"
                 },
-                "Descuento": {
-                    "type": "number",
-                    "format": "double"
-                },
-                "Documento": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "Ente": {
-                    "type": "integer",
-                    "format": "int64"
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "Modificado": {
-                    "type": "string",
-                    "format": "datetime"
+                "PeriodoId": {
+                    "type": "integer",
+                    "format": "int64"
                 },
-                "TipoDescuentoMatricula": {
-                    "$ref": "#/definitions/models.TipoDescuentoMatricula"
+                "PorcentajeDescuento": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "TipoDescuentoId": {
+                    "$ref": "#/definitions/models.TipoDescuento"
                 }
             }
         },
-        "models.TipoDescuentoMatricula": {
-            "title": "TipoDescuentoMatricula",
+        "models.Requisito": {
+            "title": "Requisito",
             "type": "object",
             "properties": {
                 "Activo": {
@@ -409,24 +1447,20 @@
                 "CodigoAbreviacion": {
                     "type": "string"
                 },
-                "Creado": {
-                    "type": "string",
-                    "format": "datetime"
-                },
                 "Descripcion": {
                     "type": "string"
                 },
-                "Descuento": {
-                    "type": "integer",
-                    "format": "int64"
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
-                },
-                "Modificado": {
-                    "type": "string",
-                    "format": "datetime"
                 },
                 "Nombre": {
                     "type": "string"
@@ -434,22 +1468,249 @@
                 "NumeroOrden": {
                     "type": "number",
                     "format": "double"
+                }
+            }
+        },
+        "models.RequisitoTipoDescuento": {
+            "title": "RequisitoTipoDescuento",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
                 },
-                "Periodo": {
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
+                },
+                "RequisitoId": {
+                    "$ref": "#/definitions/models.Requisito"
+                },
+                "TipoDescuentoId": {
+                    "$ref": "#/definitions/models.TipoDescuento"
+                }
+            }
+        },
+        "models.SolicitudDescuento": {
+            "title": "SolicitudDescuento",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "DescuentosDependenciaId": {
+                    "$ref": "#/definitions/models.DescuentosDependencia"
+                },
+                "Estado": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "PeriodoId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "PersonaId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.SoporteDescuento": {
+            "title": "SoporteDescuento",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "DocumentoId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "SolicitudDescuentoId": {
+                    "$ref": "#/definitions/models.SolicitudDescuento"
+                }
+            }
+        },
+        "models.TipoDescuento": {
+            "title": "TipoDescuento",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "CodigoAbreviacion": {
+                    "type": "string"
+                },
+                "ConceptoAcademicoId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "General": {
+                    "type": "boolean"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "NumeroOrden": {
+                    "type": "number",
+                    "format": "double"
+                }
+            }
+        },
+        "models.TipoDuracion": {
+            "title": "TipoDuracion",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "CodigoAbreviacion": {
+                    "type": "string"
+                },
+                "Descripcion": {
+                    "type": "string"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "NumeroOrden": {
+                    "type": "number",
+                    "format": "double"
+                }
+            }
+        },
+        "models.ValidacionDescuento": {
+            "title": "ValidacionDescuento",
+            "type": "object",
+            "properties": {
+                "Activo": {
+                    "type": "boolean"
+                },
+                "Autorizado": {
+                    "type": "boolean"
+                },
+                "FechaCreacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "ReciboMatriculaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "SolicitudDescuentoId": {
+                    "$ref": "#/definitions/models.SolicitudDescuento"
+                },
+                "TipoDuracionId": {
+                    "$ref": "#/definitions/models.TipoDuracion"
+                },
+                "ValorBase": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "ValorConDescuento": {
+                    "type": "number",
+                    "format": "double"
                 }
             }
         }
     },
     "tags": [
         {
-            "name": "descuento_matricula",
-            "description": "DescuentoMatriculaController operations for DescuentoMatricula\n"
+            "name": "requisito",
+            "description": "RequisitoController operations for Requisito\n"
         },
         {
-            "name": "tipo_descuento_matricula",
-            "description": "TipoDescuentoMatriculaController operations for TipoDescuentoMatricula\n"
+            "name": "requisito_tipo_descuento",
+            "description": "RequisitoTipoDescuentoController operations for RequisitoTipoDescuento\n"
+        },
+        {
+            "name": "tipo_duracion",
+            "description": "TipoDuracionController operations for TipoDuracion\n"
+        },
+        {
+            "name": "validacion_descuento",
+            "description": "ValidacionDescuentoController operations for ValidacionDescuento\n"
+        },
+        {
+            "name": "soporte_descuento",
+            "description": "SoporteDescuentoController operations for SoporteDescuento\n"
+        },
+        {
+            "name": "tipo_descuento",
+            "description": "TipoDescuentoController operations for TipoDescuento\n"
+        },
+        {
+            "name": "descuentos_dependencia",
+            "description": "DescuentosDependenciaController operations for DescuentosDependencia\n"
+        },
+        {
+            "name": "solicitud_descuento",
+            "description": "SolicitudDescuentoController operations for SolicitudDescuento\n"
         }
     ]
 }

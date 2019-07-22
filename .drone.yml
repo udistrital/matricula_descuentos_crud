@@ -1,5 +1,5 @@
 kind: pipeline
-name: matricula_descuentos_crud
+name: descuento_academico_crud
 
 workspace:
   base: /go
