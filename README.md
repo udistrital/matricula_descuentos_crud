@@ -5,7 +5,7 @@ CI deploy with lambda - S3
 Drone 0.8 
 descuento_academico_crud master/develop
 
-## Requirements
+## Requerimientos
 Go version >= 1.8.
 
 ## Preparación:
