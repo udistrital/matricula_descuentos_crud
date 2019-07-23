@@ -10,7 +10,7 @@ Go version >= 1.8.
 
 ## Preparación:
     Para usar el API, usar el comando:
-        - go get github.com/udistrital/descuento_academico_crud
+        - go get github.com/planesticud/descuento_academico_crud
 
 ## Run
 
