@@ -5,52 +5,55 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
-type TipoDescuentoMatricula struct {
-	Id                int     `orm:"column(id);pk;auto"`
-	Nombre            string  `orm:"column(nombre)"`
-	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
-	Activo            bool    `orm:"column(activo)"`
-	NumeroOrden       float64 `orm:"column(numero_orden);null"`
-	Descripcion       string  `orm:"column(descripcion);null"`
+type TipoDuracion struct {
+	Id                int       `orm:"column(id);pk;auto"`
+	Nombre            string    `orm:"column(nombre)"`
+	CodigoAbreviacion string    `orm:"column(codigo_abreviacion);null"`
+	Activo            bool      `orm:"column(activo)"`
+	NumeroOrden       float64   `orm:"column(numero_orden);null"`
+	Descripcion       string    `orm:"column(descripcion);null"`
+	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
+	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
 }
 
-func (t *TipoDescuentoMatricula) TableName() string {
-	return "tipo_descuento_matricula"
+func (t *TipoDuracion) TableName() string {
+	return "tipo_duracion"
 }
 
 func init() {
-	orm.RegisterModel(new(TipoDescuentoMatricula))
+	orm.RegisterModel(new(TipoDuracion))
 }
 
-// AddTipoDescuentoMatricula insert a new TipoDescuentoMatricula into database and returns
+// AddTipoDuracion insert a new TipoDuracion into database and returns
 // last inserted Id on success.
-func AddTipoDescuentoMatricula(m *TipoDescuentoMatricula) (id int64, err error) {
+func AddTipoDuracion(m *TipoDuracion) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetTipoDescuentoMatriculaById retrieves TipoDescuentoMatricula by Id. Returns error if
+// GetTipoDuracionById retrieves TipoDuracion by Id. Returns error if
 // Id doesn't exist
-func GetTipoDescuentoMatriculaById(id int) (v *TipoDescuentoMatricula, err error) {
+func GetTipoDuracionById(id int) (v *TipoDuracion, err error) {
 	o := orm.NewOrm()
-	v = &TipoDescuentoMatricula{Id: id}
+	v = &TipoDuracion{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllTipoDescuentoMatricula retrieves all TipoDescuentoMatricula matches certain condition. Returns empty list if
+// GetAllTipoDuracion retrieves all TipoDuracion matches certain condition. Returns empty list if
 // no records exist
-func GetAllTipoDescuentoMatricula(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllTipoDuracion(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(TipoDescuentoMatricula))
+	qs := o.QueryTable(new(TipoDuracion)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -100,7 +103,7 @@ func GetAllTipoDescuentoMatricula(query map[string]string, fields []string, sort
 		}
 	}
 
-	var l []TipoDescuentoMatricula
+	var l []TipoDuracion
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -123,11 +126,11 @@ func GetAllTipoDescuentoMatricula(query map[string]string, fields []string, sort
 	return nil, err
 }
 
-// UpdateTipoDescuentoMatricula updates TipoDescuentoMatricula by Id and returns error if
+// UpdateTipoDuracion updates TipoDuracion by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateTipoDescuentoMatriculaById(m *TipoDescuentoMatricula) (err error) {
+func UpdateTipoDuracionById(m *TipoDuracion) (err error) {
 	o := orm.NewOrm()
-	v := TipoDescuentoMatricula{Id: m.Id}
+	v := TipoDuracion{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -138,15 +141,15 @@ func UpdateTipoDescuentoMatriculaById(m *TipoDescuentoMatricula) (err error) {
 	return
 }
 
-// DeleteTipoDescuentoMatricula deletes TipoDescuentoMatricula by Id and returns error if
+// DeleteTipoDuracion deletes TipoDuracion by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteTipoDescuentoMatricula(id int) (err error) {
+func DeleteTipoDuracion(id int) (err error) {
 	o := orm.NewOrm()
-	v := TipoDescuentoMatricula{Id: id}
+	v := TipoDuracion{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&TipoDescuentoMatricula{Id: id}); err == nil {
+		if num, err = o.Delete(&TipoDuracion{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}
