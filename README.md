@@ -9,7 +9,7 @@ descuento_academico_crud master/develop
 Go version >= 1.8.
 
 ## Preparación:
-    Para usar el API, usar el comando:
+    Para usar el API, usar el siguiente comando:
         - go get github.com/planesticud/descuento_academico_crud
 
 ## Run
