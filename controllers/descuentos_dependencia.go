@@ -12,7 +12,7 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
-//cambio actualizacion2
+//cambio actualizacion3
 // DescuentosDependenciaController operations for DescuentosDependencia
 type DescuentosDependenciaController struct {
 	beego.Controller
