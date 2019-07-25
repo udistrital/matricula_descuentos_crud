@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/udistrital/descuento_academico_crud/models"
+	"github.com/planesticud/descuento_academico_crud/models"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
