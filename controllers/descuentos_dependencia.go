@@ -11,7 +11,8 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 )
-//probando probando a ver por que no actualiza  
+
+//cambio actualizacion
 // DescuentosDependenciaController operations for DescuentosDependencia
 type DescuentosDependenciaController struct {
 	beego.Controller
