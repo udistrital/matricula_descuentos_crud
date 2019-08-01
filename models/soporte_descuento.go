@@ -14,8 +14,8 @@ type SoporteDescuento struct {
 	Id                   int                 `orm:"column(id);pk;auto"`
 	DocumentoId          int                 `orm:"column(documento_id)"`
 	Activo               bool                `orm:"column(activo)"`
-	FechaCreacion        time.Time           `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
-	FechaModificacion    time.Time           `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
+	FechaCreacion        time.Time           `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion    time.Time           `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 	SolicitudDescuentoId *SolicitudDescuento `orm:"column(solicitud_descuento_id);rel(fk)"`
 }
 

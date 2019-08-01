@@ -16,8 +16,8 @@ type DescuentosDependencia struct {
 	PeriodoId           int            `orm:"column(periodo_id)"`
 	PorcentajeDescuento float64        `orm:"column(porcentaje_descuento)"`
 	Activo              bool           `orm:"column(activo)"`
-	FechaCreacion       time.Time      `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
-	FechaModificacion   time.Time      `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
+	FechaCreacion       time.Time      `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion   time.Time      `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 	TipoDescuentoId     *TipoDescuento `orm:"column(tipo_descuento_id);rel(fk)"`
 }
 

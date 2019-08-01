@@ -14,8 +14,8 @@ type ValidacionDescuento struct {
 	Id                   int                 `orm:"column(id);pk;auto"`
 	ReciboMatriculaId    int                 `orm:"column(recibo_matricula_id)"`
 	Autorizado           bool                `orm:"column(autorizado)"`
-	FechaCreacion        time.Time           `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
-	FechaModificacion    time.Time           `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
+	FechaCreacion        time.Time           `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion    time.Time           `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 	Activo               bool                `orm:"column(activo)"`
 	ValorBase            float64             `orm:"column(valor_base)"`
 	ValorConDescuento    float64             `orm:"column(valor_con_descuento)"`

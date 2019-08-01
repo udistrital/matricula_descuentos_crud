@@ -13,8 +13,8 @@ import (
 type RequisitoTipoDescuento struct {
 	Id                int            `orm:"column(id);pk;auto"`
 	Activo            bool           `orm:"column(activo)"`
-	FechaCreacion     time.Time      `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
-	FechaModificacion time.Time      `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
+	FechaCreacion     time.Time      `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion time.Time      `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 	RequisitoId       *Requisito     `orm:"column(requisito_id);rel(fk)"`
 	TipoDescuentoId   *TipoDescuento `orm:"column(tipo_descuento_id);rel(fk)"`
 }

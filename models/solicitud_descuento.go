@@ -16,8 +16,8 @@ type SolicitudDescuento struct {
 	PeriodoId               int                    `orm:"column(periodo_id)"`
 	Estado                  string                 `orm:"column(estado)"`
 	Activo                  bool                   `orm:"column(activo)"`
-	FechaCreacion           time.Time              `orm:"column(fecha_creacion);type(timestamp without time zone);auto_now_add"`
-	FechaModificacion       time.Time              `orm:"column(fecha_modificacion);type(timestamp without time zone);auto_now"`
+	FechaCreacion           time.Time              `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
+	FechaModificacion       time.Time              `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 	DescuentosDependenciaId *DescuentosDependencia `orm:"column(descuentos_dependencia_id);rel(fk)"`
 }
 
