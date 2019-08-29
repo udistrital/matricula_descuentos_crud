@@ -6,10 +6,7 @@ import (
 	"strings"
 
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
-	"github.com/fatih/structs"
 	"github.com/planesticud/descuento_academico_crud/models"
-	"github.com/udistrital/utils_oas/formatdata"
 )
 
 // SoporteDescuentoController operations for SoporteDescuento
@@ -38,22 +35,18 @@ func (c *SoporteDescuentoController) Post() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if _, err := models.AddSoporteDescuento(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = models.Alert{Type: "success", Code: "S_201", Body: v}
+			c.Data["json"] = v
 		} else {
-			logs.Error(err)
-			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			beego.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
 			c.Data["system"] = err
-			alertdb := structs.Map(err)
-			var code string
-			formatdata.FillStruct(alertdb["Code"], &code)
-			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
-			c.Data["json"] = alert
+			c.Abort("400")
 		}
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		beego.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
-		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -70,10 +63,10 @@ func (c *SoporteDescuentoController) GetOne() {
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetSoporteDescuentoById(id)
 	if err != nil {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		beego.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
-		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+		c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -136,10 +129,10 @@ func (c *SoporteDescuentoController) GetAll() {
 
 	l, err := models.GetAllSoporteDescuento(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		beego.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
-		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+		c.Abort("404")
 	} else {
 		if l == nil {
 			l = append(l, map[string]interface{}{})
@@ -164,22 +157,18 @@ func (c *SoporteDescuentoController) Put() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateSoporteDescuentoById(&v); err == nil {
 			c.Ctx.Output.SetStatus(200)
-			c.Data["json"] = models.Alert{Type: "success", Code: "S_200", Body: v}
+			c.Data["json"] = v
 		} else {
-			logs.Error(err)
-			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-			c.Data["system"] = err
-			alertdb := structs.Map(err)
-			var code string
-			formatdata.FillStruct(alertdb["Code"], &code)
-			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
-			c.Data["json"] = alert
+			beego.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
+			c.Data["System"] = err
+			c.Abort("400")
 		}
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+		beego.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
+		c.Data["System"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -195,12 +184,12 @@ func (c *SoporteDescuentoController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteSoporteDescuento(id); err == nil {
-		c.Data["json"] = models.Alert{Type: "success", Code: "S_200", Body: "OK"}
+		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+		beego.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
+		c.Data["System"] = err
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }

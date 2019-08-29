@@ -5,22 +5,22 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type ValidacionDescuento struct {
 	Id                   int                 `orm:"column(id);pk;auto"`
 	ReciboMatriculaId    int                 `orm:"column(recibo_matricula_id)"`
 	Autorizado           bool                `orm:"column(autorizado)"`
-	FechaCreacion        time.Time           `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
-	FechaModificacion    time.Time           `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 	Activo               bool                `orm:"column(activo)"`
 	ValorBase            float64             `orm:"column(valor_base)"`
 	ValorConDescuento    float64             `orm:"column(valor_con_descuento)"`
 	TipoDuracionId       *TipoDuracion       `orm:"column(tipo_duracion_id);rel(fk)"`
 	SolicitudDescuentoId *SolicitudDescuento `orm:"column(solicitud_descuento_id);rel(fk)"`
+	FechaCreacion        string              `orm:"column(fecha_creacion);null"`
+	FechaModificacion    string              `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *ValidacionDescuento) TableName() string {
@@ -34,6 +34,8 @@ func init() {
 // AddValidacionDescuento insert a new ValidacionDescuento into database and returns
 // last inserted Id on success.
 func AddValidacionDescuento(m *ValidacionDescuento) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -133,6 +135,7 @@ func GetAllValidacionDescuento(query map[string]string, fields []string, sortby 
 func UpdateValidacionDescuentoById(m *ValidacionDescuento) (err error) {
 	o := orm.NewOrm()
 	v := ValidacionDescuento{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64

@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type DescuentosDependencia struct {
@@ -16,9 +16,9 @@ type DescuentosDependencia struct {
 	PeriodoId           int            `orm:"column(periodo_id)"`
 	PorcentajeDescuento float64        `orm:"column(porcentaje_descuento)"`
 	Activo              bool           `orm:"column(activo)"`
-	FechaCreacion       time.Time      `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
-	FechaModificacion   time.Time      `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 	TipoDescuentoId     *TipoDescuento `orm:"column(tipo_descuento_id);rel(fk)"`
+	FechaCreacion       string         `orm:"column(fecha_creacion);null"`
+	FechaModificacion   string         `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *DescuentosDependencia) TableName() string {
@@ -32,6 +32,8 @@ func init() {
 // AddDescuentosDependencia insert a new DescuentosDependencia into database and returns
 // last inserted Id on success.
 func AddDescuentosDependencia(m *DescuentosDependencia) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -131,6 +133,7 @@ func GetAllDescuentosDependencia(query map[string]string, fields []string, sortb
 func UpdateDescuentosDependenciaById(m *DescuentosDependencia) (err error) {
 	o := orm.NewOrm()
 	v := DescuentosDependencia{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64

@@ -5,12 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/fatih/structs"
-	"github.com/planesticud/descuento_academico_crud/models"
-	"github.com/udistrital/utils_oas/formatdata"
-
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
+	"github.com/planesticud/descuento_academico_crud/models"
 )
 
 // ValidacionDescuentoController operations for ValidacionDescuento
@@ -39,22 +35,18 @@ func (c *ValidacionDescuentoController) Post() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if _, err := models.AddValidacionDescuento(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = models.Alert{Type: "success", Code: "S_201", Body: v}
+			c.Data["json"] = v
 		} else {
-			logs.Error(err)
-			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			beego.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
 			c.Data["system"] = err
-			alertdb := structs.Map(err)
-			var code string
-			formatdata.FillStruct(alertdb["Code"], &code)
-			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
-			c.Data["json"] = alert
+			c.Abort("400")
 		}
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		beego.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
-		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -71,10 +63,10 @@ func (c *ValidacionDescuentoController) GetOne() {
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetValidacionDescuentoById(id)
 	if err != nil {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		beego.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
-		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+		c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -137,10 +129,10 @@ func (c *ValidacionDescuentoController) GetAll() {
 
 	l, err := models.GetAllValidacionDescuento(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		beego.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
-		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+		c.Abort("404")
 	} else {
 		if l == nil {
 			l = append(l, map[string]interface{}{})
@@ -165,22 +157,18 @@ func (c *ValidacionDescuentoController) Put() {
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateValidacionDescuentoById(&v); err == nil {
 			c.Ctx.Output.SetStatus(200)
-			c.Data["json"] = models.Alert{Type: "success", Code: "S_200", Body: v}
+			c.Data["json"] = v
 		} else {
-			logs.Error(err)
-			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-			c.Data["system"] = err
-			alertdb := structs.Map(err)
-			var code string
-			formatdata.FillStruct(alertdb["Code"], &code)
-			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
-			c.Data["json"] = alert
+			beego.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
+			c.Data["System"] = err
+			c.Abort("400")
 		}
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+		beego.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
+		c.Data["System"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -196,12 +184,12 @@ func (c *ValidacionDescuentoController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteValidacionDescuento(id); err == nil {
-		c.Data["json"] = models.Alert{Type: "success", Code: "S_200", Body: "OK"}
+		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
-		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
-		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
+		beego.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
+		c.Data["System"] = err
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }

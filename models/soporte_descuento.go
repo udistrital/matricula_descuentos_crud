@@ -5,18 +5,18 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type SoporteDescuento struct {
 	Id                   int                 `orm:"column(id);pk;auto"`
 	DocumentoId          int                 `orm:"column(documento_id)"`
 	Activo               bool                `orm:"column(activo)"`
-	FechaCreacion        time.Time           `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
-	FechaModificacion    time.Time           `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 	SolicitudDescuentoId *SolicitudDescuento `orm:"column(solicitud_descuento_id);rel(fk)"`
+	FechaCreacion        string              `orm:"column(fecha_creacion);null"`
+	FechaModificacion    string              `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *SoporteDescuento) TableName() string {
@@ -30,6 +30,8 @@ func init() {
 // AddSoporteDescuento insert a new SoporteDescuento into database and returns
 // last inserted Id on success.
 func AddSoporteDescuento(m *SoporteDescuento) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -129,6 +131,7 @@ func GetAllSoporteDescuento(query map[string]string, fields []string, sortby []s
 func UpdateSoporteDescuentoById(m *SoporteDescuento) (err error) {
 	o := orm.NewOrm()
 	v := SoporteDescuento{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
