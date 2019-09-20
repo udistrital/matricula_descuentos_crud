@@ -1,0 +1,16 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "Nombre": { "type": "string" },
+    "Descripcion": { "type": "string" },
+    "CodigoAbreviacion": { "type": "string" },
+    "Activo": { "type": "boolean" },
+    "NumeroOrden": { "type": "number" },
+    "ConceptoAcademicoId": { "type": "integer" },
+    "General": { "type": "boolean" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}

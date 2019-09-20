@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type SolicitudDescuento struct {
@@ -16,9 +16,9 @@ type SolicitudDescuento struct {
 	PeriodoId               int                    `orm:"column(periodo_id)"`
 	Estado                  string                 `orm:"column(estado)"`
 	Activo                  bool                   `orm:"column(activo)"`
-	FechaCreacion           time.Time              `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
-	FechaModificacion       time.Time              `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
 	DescuentosDependenciaId *DescuentosDependencia `orm:"column(descuentos_dependencia_id);rel(fk)"`
+	FechaCreacion           string                 `orm:"column(fecha_creacion);null"`
+	FechaModificacion       string                 `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *SolicitudDescuento) TableName() string {
@@ -32,6 +32,8 @@ func init() {
 // AddSolicitudDescuento insert a new SolicitudDescuento into database and returns
 // last inserted Id on success.
 func AddSolicitudDescuento(m *SolicitudDescuento) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -131,10 +133,11 @@ func GetAllSolicitudDescuento(query map[string]string, fields []string, sortby [
 func UpdateSolicitudDescuentoById(m *SolicitudDescuento) (err error) {
 	o := orm.NewOrm()
 	v := SolicitudDescuento{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "PersonaId", "PeriodoId", "Estado", "DescuentosDependenciaId", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}

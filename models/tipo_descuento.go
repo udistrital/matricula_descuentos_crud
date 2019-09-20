@@ -5,22 +5,22 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type TipoDescuento struct {
-	Id                  int       `orm:"column(id);pk;auto"`
-	Nombre              string    `orm:"column(nombre)"`
-	CodigoAbreviacion   string    `orm:"column(codigo_abreviacion);null"`
-	Activo              bool      `orm:"column(activo)"`
-	NumeroOrden         float64   `orm:"column(numero_orden);null"`
-	Descripcion         string    `orm:"column(descripcion);null"`
-	General             bool      `orm:"column(general)"`
-	FechaCreacion       time.Time `orm:"column(fecha_creacion);type(timestamp with time zone);auto_now_add"`
-	FechaModificacion   time.Time `orm:"column(fecha_modificacion);type(timestamp with time zone);auto_now"`
-	ConceptoAcademicoId int       `orm:"column(concepto_academico_id)"`
+	Id                  int     `orm:"column(id);pk;auto"`
+	Nombre              string  `orm:"column(nombre)"`
+	CodigoAbreviacion   string  `orm:"column(codigo_abreviacion);null"`
+	Activo              bool    `orm:"column(activo)"`
+	NumeroOrden         float64 `orm:"column(numero_orden);null"`
+	Descripcion         string  `orm:"column(descripcion);null"`
+	General             bool    `orm:"column(general)"`
+	ConceptoAcademicoId int     `orm:"column(concepto_academico_id)"`
+	FechaCreacion       string  `orm:"column(fecha_creacion);null"`
+	FechaModificacion   string  `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *TipoDescuento) TableName() string {
@@ -34,6 +34,8 @@ func init() {
 // AddTipoDescuento insert a new TipoDescuento into database and returns
 // last inserted Id on success.
 func AddTipoDescuento(m *TipoDescuento) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -133,10 +135,11 @@ func GetAllTipoDescuento(query map[string]string, fields []string, sortby []stri
 func UpdateTipoDescuentoById(m *TipoDescuento) (err error) {
 	o := orm.NewOrm()
 	v := TipoDescuento{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "Nombre", "Descripcion", "CodigoAbreviacion", "General", "ConceptoAcademicoId", "Activo", "NumeroOrden", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
