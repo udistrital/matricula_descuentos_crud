@@ -63,6 +63,12 @@ func init() {
 				&controllers.SolicitudDescuentoController{},
 			),
 		),
+
+		beego.NSNamespace("/tipo_dependencia_descuento",
+			beego.NSInclude(
+				&controllers.TipoDependenciaDescuentoController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }

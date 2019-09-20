@@ -2,23 +2,23 @@ package controllers
 
 import (
 	"encoding/json"
+	"errors"
 	"strconv"
 	"strings"
 
+	"github.com/planesticud/descuento_academico_crud/models"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
-	"github.com/planesticud/descuento_academico_crud/models"
 )
 
-//cambio actualizacion7
-
-// DescuentosDependenciaController operations for DescuentosDependencia
-type DescuentosDependenciaController struct {
+// TipoDependenciaDescuentoController operations for TipoDependenciaDescuento
+type TipoDependenciaDescuentoController struct {
 	beego.Controller
 }
 
 // URLMapping ...
-func (c *DescuentosDependenciaController) URLMapping() {
+func (c *TipoDependenciaDescuentoController) URLMapping() {
 	c.Mapping("Post", c.Post)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
@@ -28,15 +28,15 @@ func (c *DescuentosDependenciaController) URLMapping() {
 
 // Post ...
 // @Title Post
-// @Description create DescuentosDependencia
-// @Param	body		body 	models.DescuentosDependencia	true		"body for DescuentosDependencia content"
-// @Success 201 {int} models.DescuentosDependencia
-// @Failure 400 the request contains incorrect syntax
+// @Description create TipoDependenciaDescuento
+// @Param	body		body 	models.TipoDependenciaDescuento	true		"body for TipoDependenciaDescuento content"
+// @Success 201 {int} models.TipoDependenciaDescuento
+// @Failure 403 body is empty
 // @router / [post]
-func (c *DescuentosDependenciaController) Post() {
-	var v models.DescuentosDependencia
+func (c *TipoDependenciaDescuentoController) Post() {
+	var v models.TipoDependenciaDescuento
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if _, err := models.AddDescuentosDependencia(&v); err == nil {
+		if _, err := models.AddTipoDependenciaDescuento(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
@@ -56,15 +56,15 @@ func (c *DescuentosDependenciaController) Post() {
 
 // GetOne ...
 // @Title Get One
-// @Description get DescuentosDependencia by id
+// @Description get TipoDependenciaDescuento by id
 // @Param	id		path 	string	true		"The key for staticblock"
-// @Success 200 {object} models.DescuentosDependencia
-// @Failure 404 not found resource
+// @Success 200 {object} models.TipoDependenciaDescuento
+// @Failure 403 :id is empty
 // @router /:id [get]
-func (c *DescuentosDependenciaController) GetOne() {
+func (c *TipoDependenciaDescuentoController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v, err := models.GetDescuentosDependenciaById(id)
+	v, err := models.GetTipoDependenciaDescuentoById(id)
 	if err != nil {
 		logs.Error(err)
 		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
@@ -78,17 +78,17 @@ func (c *DescuentosDependenciaController) GetOne() {
 
 // GetAll ...
 // @Title Get All
-// @Description get DescuentosDependencia
+// @Description get TipoDependenciaDescuento
 // @Param	query	query	string	false	"Filter. e.g. col1:v1,col2:v2 ..."
 // @Param	fields	query	string	false	"Fields returned. e.g. col1,col2 ..."
 // @Param	sortby	query	string	false	"Sorted-by fields. e.g. col1,col2 ..."
 // @Param	order	query	string	false	"Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ..."
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
-// @Success 200 {object} models.DescuentosDependencia
-// @Failure 404 not found resource
+// @Success 200 {object} models.TipoDependenciaDescuento
+// @Failure 403
 // @router / [get]
-func (c *DescuentosDependenciaController) GetAll() {
+func (c *TipoDependenciaDescuentoController) GetAll() {
 	var fields []string
 	var sortby []string
 	var order []string
@@ -121,7 +121,7 @@ func (c *DescuentosDependenciaController) GetAll() {
 		for _, cond := range strings.Split(v, ",") {
 			kv := strings.SplitN(cond, ":", 2)
 			if len(kv) != 2 {
-				c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: "Error: invalid query key/value pair"}
+				c.Data["json"] = errors.New("Error: invalid query key/value pair")
 				c.ServeJSON()
 				return
 			}
@@ -130,7 +130,7 @@ func (c *DescuentosDependenciaController) GetAll() {
 		}
 	}
 
-	l, err := models.GetAllDescuentosDependencia(query, fields, sortby, order, offset, limit)
+	l, err := models.GetAllTipoDependenciaDescuento(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		logs.Error(err)
 		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
@@ -147,19 +147,18 @@ func (c *DescuentosDependenciaController) GetAll() {
 
 // Put ...
 // @Title Put
-// @Description update the DescuentosDependencia
+// @Description update the TipoDependenciaDescuento
 // @Param	id		path 	string	true		"The id you want to update"
-// @Param	body		body 	models.DescuentosDependencia	true		"body for DescuentosDependencia content"
-// @Success 200 {object} models.DescuentosDependencia
-// @Failure 400 the request contains incorrect syntax
+// @Param	body		body 	models.TipoDependenciaDescuento	true		"body for TipoDependenciaDescuento content"
+// @Success 200 {object} models.TipoDependenciaDescuento
+// @Failure 403 :id is not int
 // @router /:id [put]
-func (c *DescuentosDependenciaController) Put() {
+func (c *TipoDependenciaDescuentoController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	v := models.DescuentosDependencia{Id: id}
+	v := models.TipoDependenciaDescuento{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		if err := models.UpdateDescuentosDependenciaById(&v); err == nil {
-			c.Ctx.Output.SetStatus(200)
+		if err := models.UpdateTipoDependenciaDescuentoById(&v); err == nil {
 			c.Data["json"] = "OK"
 		} else {
 			logs.Error(err)
@@ -180,15 +179,15 @@ func (c *DescuentosDependenciaController) Put() {
 
 // Delete ...
 // @Title Delete
-// @Description delete the DescuentosDependencia
+// @Description delete the TipoDependenciaDescuento
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
-// @Failure 404 not found resource
+// @Failure 403 id is empty
 // @router /:id [delete]
-func (c *DescuentosDependenciaController) Delete() {
+func (c *TipoDependenciaDescuentoController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
-	if err := models.DeleteDescuentosDependencia(id); err == nil {
+	if err := models.DeleteTipoDependenciaDescuento(id); err == nil {
 		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
 		logs.Error(err)

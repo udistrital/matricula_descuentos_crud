@@ -5,56 +5,57 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
-	"github.com/udistrital/utils_oas/time_bogota"
 )
 
-type DescuentosDependencia struct {
-	Id                int            `orm:"column(id);pk;auto"`
-	DependenciaId     int            `orm:"column(dependencia_id)"`
-	PeriodoId         int            `orm:"column(periodo_id)"`
-	Activo            bool           `orm:"column(activo)"`
-	TipoDescuentoId   *TipoDescuento `orm:"column(tipo_descuento_id);rel(fk)"`
-	FechaCreacion     string         `orm:"column(fecha_creacion);null"`
-	FechaModificacion string         `orm:"column(fecha_modificacion);null"`
+type TipoDependenciaDescuento struct {
+	Id                  int            `orm:"column(id);pk;auto"`
+	TipoDescuentoId     *TipoDescuento `orm:"column(tipo_descuento_id);rel(fk)"`
+	TipoDependenciaId   int            `orm:"column(tipo_dependencia_id)"`
+	PorcentajeDescuento float64        `orm:"column(porcentaje_descuento)"`
+	Vigencia            string         `orm:"column(vigencia);null"`
+	FechaCreacion       time.Time      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion   time.Time      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Activo              bool           `orm:"column(activo)"`
+	FechaInicio         time.Time      `orm:"column(fecha_inicio);type(timestamp without time zone)"`
+	FechaFin            time.Time      `orm:"column(fecha_fin);type(timestamp without time zone);null"`
 }
 
-func (t *DescuentosDependencia) TableName() string {
-	return "descuentos_dependencia"
+func (t *TipoDependenciaDescuento) TableName() string {
+	return "tipo_dependencia_descuento"
 }
 
 func init() {
-	orm.RegisterModel(new(DescuentosDependencia))
+	orm.RegisterModel(new(TipoDependenciaDescuento))
 }
 
-// AddDescuentosDependencia insert a new DescuentosDependencia into database and returns
+// AddTipoDependenciaDescuento insert a new TipoDependenciaDescuento into database and returns
 // last inserted Id on success.
-func AddDescuentosDependencia(m *DescuentosDependencia) (id int64, err error) {
-	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
-	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
+func AddTipoDependenciaDescuento(m *TipoDependenciaDescuento) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetDescuentosDependenciaById retrieves DescuentosDependencia by Id. Returns error if
+// GetTipoDependenciaDescuentoById retrieves TipoDependenciaDescuento by Id. Returns error if
 // Id doesn't exist
-func GetDescuentosDependenciaById(id int) (v *DescuentosDependencia, err error) {
+func GetTipoDependenciaDescuentoById(id int) (v *TipoDependenciaDescuento, err error) {
 	o := orm.NewOrm()
-	v = &DescuentosDependencia{Id: id}
+	v = &TipoDependenciaDescuento{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllDescuentosDependencia retrieves all DescuentosDependencia matches certain condition. Returns empty list if
+// GetAllTipoDependenciaDescuento retrieves all TipoDependenciaDescuento matches certain condition. Returns empty list if
 // no records exist
-func GetAllDescuentosDependencia(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllTipoDependenciaDescuento(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(DescuentosDependencia))
+	qs := o.QueryTable(new(TipoDependenciaDescuento))
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -104,7 +105,7 @@ func GetAllDescuentosDependencia(query map[string]string, fields []string, sortb
 		}
 	}
 
-	var l []DescuentosDependencia
+	var l []TipoDependenciaDescuento
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -127,31 +128,30 @@ func GetAllDescuentosDependencia(query map[string]string, fields []string, sortb
 	return nil, err
 }
 
-// UpdateDescuentosDependencia updates DescuentosDependencia by Id and returns error if
+// UpdateTipoDependenciaDescuento updates TipoDependenciaDescuento by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateDescuentosDependenciaById(m *DescuentosDependencia) (err error) {
+func UpdateTipoDependenciaDescuentoById(m *TipoDependenciaDescuento) (err error) {
 	o := orm.NewOrm()
-	v := DescuentosDependencia{Id: m.Id}
-	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
+	v := TipoDependenciaDescuento{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m, "DependenciaId", "PeriodoId", "PorcentajeDescuento", "TipoDescuentoId", "Activo", "FechaModificacion"); err == nil {
+		if num, err = o.Update(m); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
 	return
 }
 
-// DeleteDescuentosDependencia deletes DescuentosDependencia by Id and returns error if
+// DeleteTipoDependenciaDescuento deletes TipoDependenciaDescuento by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteDescuentosDependencia(id int) (err error) {
+func DeleteTipoDependenciaDescuento(id int) (err error) {
 	o := orm.NewOrm()
-	v := DescuentosDependencia{Id: id}
+	v := TipoDependenciaDescuento{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&DescuentosDependencia{Id: id}); err == nil {
+		if num, err = o.Delete(&TipoDependenciaDescuento{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

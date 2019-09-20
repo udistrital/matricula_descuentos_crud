@@ -586,6 +586,121 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
+  /tipo_dependencia_descuento/:
+    get:
+      tags:
+      - tipo_dependencia_descuento
+      description: get TipoDependenciaDescuento
+      operationId: TipoDependenciaDescuentoController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDependenciaDescuento'
+        "403":
+          description: ""
+    post:
+      tags:
+      - tipo_dependencia_descuento
+      description: create TipoDependenciaDescuento
+      operationId: TipoDependenciaDescuentoController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for TipoDependenciaDescuento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoDependenciaDescuento'
+      responses:
+        "201":
+          description: '{int} models.TipoDependenciaDescuento'
+        "403":
+          description: body is empty
+  /tipo_dependencia_descuento/{id}:
+    get:
+      tags:
+      - tipo_dependencia_descuento
+      description: get TipoDependenciaDescuento by id
+      operationId: TipoDependenciaDescuentoController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDependenciaDescuento'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - tipo_dependencia_descuento
+      description: update the TipoDependenciaDescuento
+      operationId: TipoDependenciaDescuentoController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for TipoDependenciaDescuento content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoDependenciaDescuento'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoDependenciaDescuento'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - tipo_dependencia_descuento
+      description: delete the TipoDependenciaDescuento
+      operationId: TipoDependenciaDescuentoController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
   /tipo_descuento/:
     get:
       tags:
@@ -951,9 +1066,6 @@ definitions:
       PeriodoId:
         type: integer
         format: int64
-      PorcentajeDescuento:
-        type: number
-        format: double
       TipoDescuentoId:
         $ref: '#/definitions/models.TipoDescuento'
   models.Requisito:
@@ -1036,6 +1148,37 @@ definitions:
         format: int64
       SolicitudDescuentoId:
         $ref: '#/definitions/models.SolicitudDescuento'
+  models.TipoDependenciaDescuento:
+    title: TipoDependenciaDescuento
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaFin:
+        type: string
+        format: datetime
+      FechaInicio:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      PorcentajeDescuento:
+        type: number
+        format: double
+      TipoDependenciaId:
+        type: integer
+        format: int64
+      TipoDescuentoId:
+        $ref: '#/definitions/models.TipoDescuento'
+      Vigencia:
+        type: string
   models.TipoDescuento:
     title: TipoDescuento
     type: object
@@ -1138,3 +1281,6 @@ tags:
 - name: solicitud_descuento
   description: |
     SolicitudDescuentoController operations for SolicitudDescuento
+- name: tipo_dependencia_descuento
+  description: |
+    TipoDependenciaDescuentoController operations for TipoDependenciaDescuento
