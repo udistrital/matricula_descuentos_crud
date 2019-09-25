@@ -932,8 +932,8 @@
                             "$ref": "#/definitions/models.TipoDependenciaDescuento"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -958,8 +958,8 @@
                     "201": {
                         "description": "{int} models.TipoDependenciaDescuento"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -987,8 +987,8 @@
                             "$ref": "#/definitions/models.TipoDependenciaDescuento"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1023,8 +1023,8 @@
                             "$ref": "#/definitions/models.TipoDependenciaDescuento"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -1047,8 +1047,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -1728,8 +1728,7 @@
                     "type": "boolean"
                 },
                 "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "FechaFin": {
                     "type": "string",
@@ -1740,8 +1739,7 @@
                     "format": "datetime"
                 },
                 "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "string"
                 },
                 "Id": {
                     "type": "integer",

@@ -1,0 +1,6 @@
+projectKey=descuento_academico_crud
+serverUrl=http://sonarqube.planestic.udistrital.edu.co:9005
+serverVersion=7.0.0.36138
+dashboardUrl=http://sonarqube.planestic.udistrital.edu.co:9005/dashboard/index/descuento_academico_crud
+ceTaskId=AW1qNEO6lGVdvusbrOLK
+ceTaskUrl=http://sonarqube.planestic.udistrital.edu.co:9005/api/ce/task?id=AW1qNEO6lGVdvusbrOLK

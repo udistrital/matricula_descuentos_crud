@@ -1,0 +1,16 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "TipoDescuentoId":	{ "type": "TipoDescuento" },
+    "TipoDependenciaId": { "type": "integer" },
+    "PorcentajeDescuento": { "type": "number" },
+    "Vigencia": { "type": "string" },
+    "FechaInicio": { "type": "string" },
+    "FechaFin": { "type": "string" },
+    "Activo": { "type": "boolean" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}

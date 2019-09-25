@@ -623,8 +623,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoDependenciaDescuento'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - tipo_dependencia_descuento
@@ -640,8 +640,8 @@ paths:
       responses:
         "201":
           description: '{int} models.TipoDependenciaDescuento'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /tipo_dependencia_descuento/{id}:
     get:
       tags:
@@ -659,8 +659,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoDependenciaDescuento'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - tipo_dependencia_descuento
@@ -683,8 +683,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoDependenciaDescuento'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - tipo_dependencia_descuento
@@ -699,8 +699,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /tipo_descuento/:
     get:
       tags:
@@ -1156,7 +1156,6 @@ definitions:
         type: boolean
       FechaCreacion:
         type: string
-        format: datetime
       FechaFin:
         type: string
         format: datetime
@@ -1165,7 +1164,6 @@ definitions:
         format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64

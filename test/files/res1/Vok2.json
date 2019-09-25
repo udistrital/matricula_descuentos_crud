@@ -5,7 +5,6 @@
     "Id": { "type": "integer" },
     "DependenciaId": { "type": "integer" },
     "PeriodoId": { "type": "integer" },
-    "PorcentajeDescuento": { "type": "number" },
     "TipoDescuentoId":	{ "type": "TipoDescuento" },
     "Activo": { "type": "boolean" },
     "FechaCreacion": { "type": "string" },
