@@ -1,1 +1,0 @@
-~6database/migrations/20190803_122303_creacion_tablas.go 2goX?hr6database/migrations/20190803_122303_creacion_tablas.go

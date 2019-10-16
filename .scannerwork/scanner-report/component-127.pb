@@ -1,1 +1,0 @@
-database/migrations :}~rdatabase/migrations
