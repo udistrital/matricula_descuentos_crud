@@ -6,7 +6,6 @@ import (
 	"github.com/udistrital/utils_oas/customerror"
 
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/lib/pq"
@@ -39,10 +38,10 @@ func init() {
 func main() {
 	orm.Debug = true
 	orm.RegisterDataBase("default", "postgres", "postgres://"+beego.AppConfig.String("PGuser")+":"+beego.AppConfig.String("PGpass")+"@"+beego.AppConfig.String("PGurls")+"/"+beego.AppConfig.String("PGdb")+"?sslmode=disable&search_path="+beego.AppConfig.String("PGschemas")+"")
-	logPath := "{\"filename\":\""
+	/*logPath := "{\"filename\":\""
 	logPath += beego.AppConfig.String("logPath")
 	logPath += "\"}"
-	logs.SetLogger(logs.AdapterFile, logPath)
+	logs.SetLogger(logs.AdapterFile, logPath)*/
 	apistatus.Init()
 	beego.ErrorController(&customerror.CustomErrorController{})
 
