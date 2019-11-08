@@ -1,0 +1,16 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "ReciboMatriculaId": { "type": "integer" },
+    "TipoDuracionId":	{ "type": "TipoDuracion" },
+    "SolicitudDescuentoId":	{ "type": "SolicitudDescuento" },
+    "Autorizado": { "type": "boolean" },
+    "ValorBase": { "type": "number" },
+    "ValorConDescuento": { "type": "number" },
+    "Activo": { "type": "boolean" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}
