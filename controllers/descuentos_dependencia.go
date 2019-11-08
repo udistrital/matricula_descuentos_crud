@@ -2,15 +2,15 @@ package controllers
 
 import (
 	"encoding/json"
-	"errors"
 	"strconv"
 	"strings"
 
-	"github.com/udistrital/descuento_academico_crud/models"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+	"github.com/udistrital/descuento_academico_crud/models"
 )
+
+//cambio actualizacion7
 
 // DescuentosDependenciaController operations for DescuentosDependencia
 type DescuentosDependenciaController struct {
@@ -41,13 +41,13 @@ func (c *DescuentosDependenciaController) Post() {
 			c.Data["json"] = v
 		} else {
 			logs.Error(err)
-			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
 			c.Data["system"] = err
 			c.Abort("400")
 		}
 	} else {
 		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
 		c.Abort("400")
 	}
@@ -67,7 +67,7 @@ func (c *DescuentosDependenciaController) GetOne() {
 	v, err := models.GetDescuentosDependenciaById(id)
 	if err != nil {
 		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
 		c.Abort("404")
 	} else {
@@ -121,7 +121,7 @@ func (c *DescuentosDependenciaController) GetAll() {
 		for _, cond := range strings.Split(v, ",") {
 			kv := strings.SplitN(cond, ":", 2)
 			if len(kv) != 2 {
-				c.Data["json"] = errors.New("Error: invalid query key/value pair")
+				c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: "Error: invalid query key/value pair"}
 				c.ServeJSON()
 				return
 			}
@@ -133,7 +133,7 @@ func (c *DescuentosDependenciaController) GetAll() {
 	l, err := models.GetAllDescuentosDependencia(query, fields, sortby, order, offset, limit)
 	if err != nil {
 		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
 		c.Abort("404")
 	} else {
@@ -159,17 +159,20 @@ func (c *DescuentosDependenciaController) Put() {
 	v := models.DescuentosDependencia{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateDescuentosDependenciaById(&v); err == nil {
+			c.Ctx.Output.SetStatus(200)
 			c.Data["json"] = v
 		} else {
 			logs.Error(err)
 			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-			c.Data["system"] = err
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
+			c.Data["System"] = err
 			c.Abort("400")
 		}
 	} else {
 		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
+		//c.Data["development"] = map[string]interface{}{"Code": "400", "Body": err.Error(), "Type": "error"}
+		c.Data["System"] = err
 		c.Abort("400")
 	}
 	c.ServeJSON()
@@ -189,8 +192,8 @@ func (c *DescuentosDependenciaController) Delete() {
 		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
 		logs.Error(err)
-		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
+		//c.Data["development"] = map[string]interface{}{"Code": "404", "Body": err.Error(), "Type": "error"}
+		c.Data["System"] = err
 		c.Abort("404")
 	}
 	c.ServeJSON()

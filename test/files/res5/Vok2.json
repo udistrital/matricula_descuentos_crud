@@ -1,0 +1,12 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "DocumentoId": { "type": "integer" },
+    "SolicitudDescuentoId":	{ "type": "SolicitudDescuento" },
+    "Activo": { "type": "boolean" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}

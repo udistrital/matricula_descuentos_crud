@@ -8,9 +8,8 @@
 package routers
 
 import (
-	"github.com/udistrital/descuento_academico_crud/controllers"
-
 	"github.com/astaxie/beego"
+	"github.com/udistrital/descuento_academico_crud/controllers"
 )
 
 func init() {
@@ -61,6 +60,12 @@ func init() {
 		beego.NSNamespace("/solicitud_descuento",
 			beego.NSInclude(
 				&controllers.SolicitudDescuentoController{},
+			),
+		),
+
+		beego.NSNamespace("/tipo_dependencia_descuento",
+			beego.NSInclude(
+				&controllers.TipoDependenciaDescuentoController{},
 			),
 		),
 	)
