@@ -7,50 +7,55 @@ import (
 	"strings"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
-type TipoDescuentoMatricula struct {
+type Requisito struct {
 	Id                int     `orm:"column(id);pk;auto"`
 	Nombre            string  `orm:"column(nombre)"`
 	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
 	Activo            bool    `orm:"column(activo)"`
 	NumeroOrden       float64 `orm:"column(numero_orden);null"`
 	Descripcion       string  `orm:"column(descripcion);null"`
+	FechaCreacion     string  `orm:"column(fecha_creacion);null"`
+	FechaModificacion string  `orm:"column(fecha_modificacion);null"`
 }
 
-func (t *TipoDescuentoMatricula) TableName() string {
-	return "tipo_descuento_matricula"
+func (t *Requisito) TableName() string {
+	return "requisito"
 }
 
 func init() {
-	orm.RegisterModel(new(TipoDescuentoMatricula))
+	orm.RegisterModel(new(Requisito))
 }
 
-// AddTipoDescuentoMatricula insert a new TipoDescuentoMatricula into database and returns
+// AddRequisito insert a new Requisito into database and returns
 // last inserted Id on success.
-func AddTipoDescuentoMatricula(m *TipoDescuentoMatricula) (id int64, err error) {
+func AddRequisito(m *Requisito) (id int64, err error) {
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-// GetTipoDescuentoMatriculaById retrieves TipoDescuentoMatricula by Id. Returns error if
+// GetRequisitoById retrieves Requisito by Id. Returns error if
 // Id doesn't exist
-func GetTipoDescuentoMatriculaById(id int) (v *TipoDescuentoMatricula, err error) {
+func GetRequisitoById(id int) (v *Requisito, err error) {
 	o := orm.NewOrm()
-	v = &TipoDescuentoMatricula{Id: id}
+	v = &Requisito{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllTipoDescuentoMatricula retrieves all TipoDescuentoMatricula matches certain condition. Returns empty list if
+// GetAllRequisito retrieves all Requisito matches certain condition. Returns empty list if
 // no records exist
-func GetAllTipoDescuentoMatricula(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllRequisito(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(TipoDescuentoMatricula))
+	qs := o.QueryTable(new(Requisito))
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -100,7 +105,7 @@ func GetAllTipoDescuentoMatricula(query map[string]string, fields []string, sort
 		}
 	}
 
-	var l []TipoDescuentoMatricula
+	var l []Requisito
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -123,30 +128,31 @@ func GetAllTipoDescuentoMatricula(query map[string]string, fields []string, sort
 	return nil, err
 }
 
-// UpdateTipoDescuentoMatricula updates TipoDescuentoMatricula by Id and returns error if
+// UpdateRequisito updates Requisito by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateTipoDescuentoMatriculaById(m *TipoDescuentoMatricula) (err error) {
+func UpdateRequisitoById(m *Requisito) (err error) {
 	o := orm.NewOrm()
-	v := TipoDescuentoMatricula{Id: m.Id}
+	v := Requisito{Id: m.Id}
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m); err == nil {
+		if num, err = o.Update(m, "Nombre", "Descripcion", "CodigoAbreviacion", "Activo", "NumeroOrden", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
 	return
 }
 
-// DeleteTipoDescuentoMatricula deletes TipoDescuentoMatricula by Id and returns error if
+// DeleteRequisito deletes Requisito by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteTipoDescuentoMatricula(id int) (err error) {
+func DeleteRequisito(id int) (err error) {
 	o := orm.NewOrm()
-	v := TipoDescuentoMatricula{Id: id}
+	v := Requisito{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&TipoDescuentoMatricula{Id: id}); err == nil {
+		if num, err = o.Delete(&Requisito{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}

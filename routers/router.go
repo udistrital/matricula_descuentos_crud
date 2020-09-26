@@ -8,23 +8,64 @@
 package routers
 
 import (
-	"github.com/udistrital/matricula_descuentos_crud/controllers"
-
 	"github.com/astaxie/beego"
+	"github.com/udistrital/descuento_academico_crud/controllers"
 )
 
 func init() {
 	ns := beego.NewNamespace("/v1",
 
-		beego.NSNamespace("/tipo_descuento_matricula",
+		beego.NSNamespace("/requisito",
 			beego.NSInclude(
-				&controllers.TipoDescuentoMatriculaController{},
+				&controllers.RequisitoController{},
 			),
 		),
 
-		beego.NSNamespace("/descuento_matricula",
+		beego.NSNamespace("/requisito_tipo_descuento",
 			beego.NSInclude(
-				&controllers.DescuentoMatriculaController{},
+				&controllers.RequisitoTipoDescuentoController{},
+			),
+		),
+
+		beego.NSNamespace("/tipo_duracion",
+			beego.NSInclude(
+				&controllers.TipoDuracionController{},
+			),
+		),
+
+		beego.NSNamespace("/validacion_descuento",
+			beego.NSInclude(
+				&controllers.ValidacionDescuentoController{},
+			),
+		),
+
+		beego.NSNamespace("/soporte_descuento",
+			beego.NSInclude(
+				&controllers.SoporteDescuentoController{},
+			),
+		),
+
+		beego.NSNamespace("/tipo_descuento",
+			beego.NSInclude(
+				&controllers.TipoDescuentoController{},
+			),
+		),
+
+		beego.NSNamespace("/descuentos_dependencia",
+			beego.NSInclude(
+				&controllers.DescuentosDependenciaController{},
+			),
+		),
+
+		beego.NSNamespace("/solicitud_descuento",
+			beego.NSInclude(
+				&controllers.SolicitudDescuentoController{},
+			),
+		),
+
+		beego.NSNamespace("/tipo_dependencia_descuento",
+			beego.NSInclude(
+				&controllers.TipoDependenciaDescuentoController{},
 			),
 		),
 	)
