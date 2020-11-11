@@ -17,8 +17,8 @@ type SolicitudDescuento struct {
 	Estado                  string                 `orm:"column(estado)"`
 	Activo                  bool                   `orm:"column(activo)"`
 	DescuentosDependenciaId *DescuentosDependencia `orm:"column(descuentos_dependencia_id);rel(fk)"`
-	FechaCreacion           string                 `orm:"column(fecha_creacion);null"`
-	FechaModificacion       string                 `orm:"column(fecha_modificacion);null"`
+	FechaCreacion           string                 `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion       string                 `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *SolicitudDescuento) TableName() string {
