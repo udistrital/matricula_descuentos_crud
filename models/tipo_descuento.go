@@ -19,8 +19,8 @@ type TipoDescuento struct {
 	Descripcion         string  `orm:"column(descripcion);null"`
 	General             bool    `orm:"column(general)"`
 	ConceptoAcademicoId int     `orm:"column(concepto_academico_id)"`
-	FechaCreacion       string  `orm:"column(fecha_creacion);null"`
-	FechaModificacion   string  `orm:"column(fecha_modificacion);null"`
+	FechaCreacion       string  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion   string  `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *TipoDescuento) TableName() string {

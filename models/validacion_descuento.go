@@ -19,8 +19,8 @@ type ValidacionDescuento struct {
 	ValorConDescuento    float64             `orm:"column(valor_con_descuento)"`
 	TipoDuracionId       *TipoDuracion       `orm:"column(tipo_duracion_id);rel(fk)"`
 	SolicitudDescuentoId *SolicitudDescuento `orm:"column(solicitud_descuento_id);rel(fk)"`
-	FechaCreacion        string              `orm:"column(fecha_creacion);null"`
-	FechaModificacion    string              `orm:"column(fecha_modificacion);null"`
+	FechaCreacion        string              `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion    string              `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *ValidacionDescuento) TableName() string {
