@@ -15,8 +15,8 @@ type SoporteDescuento struct {
 	DocumentoId          int                 `orm:"column(documento_id)"`
 	Activo               bool                `orm:"column(activo)"`
 	SolicitudDescuentoId *SolicitudDescuento `orm:"column(solicitud_descuento_id);rel(fk)"`
-	FechaCreacion        string              `orm:"column(fecha_creacion);null"`
-	FechaModificacion    string              `orm:"column(fecha_modificacion);null"`
+	FechaCreacion        string              `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion    string              `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *SoporteDescuento) TableName() string {

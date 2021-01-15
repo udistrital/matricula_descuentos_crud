@@ -12,13 +12,13 @@ import (
 
 type SolicitudDescuento struct {
 	Id                      int                    `orm:"column(id);pk;auto"`
-	PersonaId               int                    `orm:"column(persona_id);null"`
+	TerceroId               int                    `orm:"column(tercero_id);null"`
 	PeriodoId               int                    `orm:"column(periodo_id)"`
 	Estado                  string                 `orm:"column(estado)"`
 	Activo                  bool                   `orm:"column(activo)"`
 	DescuentosDependenciaId *DescuentosDependencia `orm:"column(descuentos_dependencia_id);rel(fk)"`
-	FechaCreacion           string                 `orm:"column(fecha_creacion);null"`
-	FechaModificacion       string                 `orm:"column(fecha_modificacion);null"`
+	FechaCreacion           string                 `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion       string                 `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *SolicitudDescuento) TableName() string {
@@ -137,7 +137,7 @@ func UpdateSolicitudDescuentoById(m *SolicitudDescuento) (err error) {
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Update(m, "PersonaId", "PeriodoId", "Estado", "DescuentosDependenciaId", "Activo", "FechaModificacion"); err == nil {
+		if num, err = o.Update(m, "TerceroId", "PeriodoId", "Estado", "DescuentosDependenciaId", "Activo", "FechaModificacion"); err == nil {
 			fmt.Println("Number of records updated in database:", num)
 		}
 	}
