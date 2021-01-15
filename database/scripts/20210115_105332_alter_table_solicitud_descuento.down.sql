@@ -1,0 +1,1 @@
+ALTER TABLE descuentos_academicos.solicitud_descuento RENAME tercero_id TO persona_id;
