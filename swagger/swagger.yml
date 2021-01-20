@@ -32,8 +32,7 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -48,9 +47,6 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.DescuentosDependencia'
-<<<<<<< HEAD
-        "403":
-=======
         "404":
           description: not found resource
     post:
@@ -150,8 +146,7 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -265,8 +260,7 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -380,8 +374,7 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -495,8 +488,7 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -610,8 +602,7 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -725,8 +716,7 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -738,7 +728,6 @@ paths:
         type: string
       responses:
         "200":
->>>>>>> develop
           description: ""
           schema:
             $ref: '#/definitions/models.TipoDescuento'
@@ -746,29 +735,6 @@ paths:
           description: not found resource
     post:
       tags:
-<<<<<<< HEAD
-      - descuentos_dependencia
-      description: create DescuentosDependencia
-      operationId: DescuentosDependenciaController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for DescuentosDependencia content
-        required: true
-        schema:
-          $ref: '#/definitions/models.DescuentosDependencia'
-      responses:
-        "201":
-          description: '{int} models.DescuentosDependencia'
-        "403":
-          description: body is empty
-  /descuentos_dependencia/{id}:
-    get:
-      tags:
-      - descuentos_dependencia
-      description: get DescuentosDependencia by id
-      operationId: DescuentosDependenciaController.Get One
-=======
       - tipo_descuento
       description: create TipoDescuento
       operationId: TipoDescuentoController.Post
@@ -790,7 +756,6 @@ paths:
       - tipo_descuento
       description: get TipoDescuento by id
       operationId: TipoDescuentoController.Get One
->>>>>>> develop
       parameters:
       - in: path
         name: id
@@ -801,16 +766,6 @@ paths:
         "200":
           description: ""
           schema:
-<<<<<<< HEAD
-            $ref: '#/definitions/models.DescuentosDependencia'
-        "403":
-          description: :id is empty
-    put:
-      tags:
-      - descuentos_dependencia
-      description: update the DescuentosDependencia
-      operationId: DescuentosDependenciaController.Put
-=======
             $ref: '#/definitions/models.TipoDescuento'
         "404":
           description: not found resource
@@ -819,7 +774,6 @@ paths:
       - tipo_descuento
       description: update the TipoDescuento
       operationId: TipoDescuentoController.Put
->>>>>>> develop
       parameters:
       - in: path
         name: id
@@ -828,31 +782,14 @@ paths:
         type: string
       - in: body
         name: body
-<<<<<<< HEAD
-        description: body for DescuentosDependencia content
-        required: true
-        schema:
-          $ref: '#/definitions/models.DescuentosDependencia'
-=======
         description: body for TipoDescuento content
         required: true
         schema:
           $ref: '#/definitions/models.TipoDescuento'
->>>>>>> develop
       responses:
         "200":
           description: ""
           schema:
-<<<<<<< HEAD
-            $ref: '#/definitions/models.DescuentosDependencia'
-        "403":
-          description: :id is not int
-    delete:
-      tags:
-      - descuentos_dependencia
-      description: delete the DescuentosDependencia
-      operationId: DescuentosDependenciaController.Delete
-=======
             $ref: '#/definitions/models.TipoDescuento'
         "400":
           description: the request contains incorrect syntax
@@ -861,7 +798,6 @@ paths:
       - tipo_descuento
       description: delete the TipoDescuento
       operationId: TipoDescuentoController.Delete
->>>>>>> develop
       parameters:
       - in: path
         name: id
@@ -871,16 +807,6 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-<<<<<<< HEAD
-        "403":
-          description: id is empty
-  /requisito/:
-    get:
-      tags:
-      - requisito
-      description: get Requisito
-      operationId: RequisitoController.Get All
-=======
         "404":
           description: not found resource
   /tipo_duracion/:
@@ -889,7 +815,6 @@ paths:
       - tipo_duracion
       description: get TipoDuracion
       operationId: TipoDuracionController.Get All
->>>>>>> develop
       parameters:
       - in: query
         name: query
@@ -905,8 +830,7 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -920,10 +844,6 @@ paths:
         "200":
           description: ""
           schema:
-<<<<<<< HEAD
-            $ref: '#/definitions/models.Requisito'
-        "403":
-=======
             $ref: '#/definitions/models.TipoDuracion'
         "404":
           description: not found resource
@@ -1024,8 +944,7 @@ paths:
         type: string
       - in: query
         name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
         type: string
       - in: query
         name: limit
@@ -1037,7 +956,6 @@ paths:
         type: string
       responses:
         "200":
->>>>>>> develop
           description: ""
           schema:
             $ref: '#/definitions/models.ValidacionDescuento'
@@ -1045,29 +963,6 @@ paths:
           description: not found resource
     post:
       tags:
-<<<<<<< HEAD
-      - requisito
-      description: create Requisito
-      operationId: RequisitoController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for Requisito content
-        required: true
-        schema:
-          $ref: '#/definitions/models.Requisito'
-      responses:
-        "201":
-          description: '{int} models.Requisito'
-        "403":
-          description: body is empty
-  /requisito/{id}:
-    get:
-      tags:
-      - requisito
-      description: get Requisito by id
-      operationId: RequisitoController.Get One
-=======
       - validacion_descuento
       description: create ValidacionDescuento
       operationId: ValidacionDescuentoController.Post
@@ -1089,7 +984,6 @@ paths:
       - validacion_descuento
       description: get ValidacionDescuento by id
       operationId: ValidacionDescuentoController.Get One
->>>>>>> develop
       parameters:
       - in: path
         name: id
@@ -1100,16 +994,6 @@ paths:
         "200":
           description: ""
           schema:
-<<<<<<< HEAD
-            $ref: '#/definitions/models.Requisito'
-        "403":
-          description: :id is empty
-    put:
-      tags:
-      - requisito
-      description: update the Requisito
-      operationId: RequisitoController.Put
-=======
             $ref: '#/definitions/models.ValidacionDescuento'
         "404":
           description: not found resource
@@ -1118,705 +1002,6 @@ paths:
       - validacion_descuento
       description: update the ValidacionDescuento
       operationId: ValidacionDescuentoController.Put
->>>>>>> develop
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-<<<<<<< HEAD
-        description: body for Requisito content
-        required: true
-        schema:
-          $ref: '#/definitions/models.Requisito'
-=======
-        description: body for ValidacionDescuento content
-        required: true
-        schema:
-          $ref: '#/definitions/models.ValidacionDescuento'
->>>>>>> develop
-      responses:
-        "200":
-          description: ""
-          schema:
-<<<<<<< HEAD
-            $ref: '#/definitions/models.Requisito'
-        "403":
-          description: :id is not int
-    delete:
-      tags:
-      - requisito
-      description: delete the Requisito
-      operationId: RequisitoController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "403":
-          description: id is empty
-  /requisito_tipo_descuento/:
-    get:
-      tags:
-      - requisito_tipo_descuento
-      description: get RequisitoTipoDescuento
-      operationId: RequisitoTipoDescuentoController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.RequisitoTipoDescuento'
-        "403":
-          description: ""
-    post:
-      tags:
-      - requisito_tipo_descuento
-      description: create RequisitoTipoDescuento
-      operationId: RequisitoTipoDescuentoController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for RequisitoTipoDescuento content
-        required: true
-        schema:
-          $ref: '#/definitions/models.RequisitoTipoDescuento'
-      responses:
-        "201":
-          description: '{int} models.RequisitoTipoDescuento'
-        "403":
-          description: body is empty
-  /requisito_tipo_descuento/{id}:
-    get:
-      tags:
-      - requisito_tipo_descuento
-      description: get RequisitoTipoDescuento by id
-      operationId: RequisitoTipoDescuentoController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.RequisitoTipoDescuento'
-        "403":
-          description: :id is empty
-    put:
-      tags:
-      - requisito_tipo_descuento
-      description: update the RequisitoTipoDescuento
-      operationId: RequisitoTipoDescuentoController.Put
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for RequisitoTipoDescuento content
-        required: true
-        schema:
-          $ref: '#/definitions/models.RequisitoTipoDescuento'
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.RequisitoTipoDescuento'
-        "403":
-          description: :id is not int
-    delete:
-      tags:
-      - requisito_tipo_descuento
-      description: delete the RequisitoTipoDescuento
-      operationId: RequisitoTipoDescuentoController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "403":
-          description: id is empty
-  /solicitud_descuento/:
-    get:
-      tags:
-      - solicitud_descuento
-      description: get SolicitudDescuento
-      operationId: SolicitudDescuentoController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.SolicitudDescuento'
-        "403":
-          description: ""
-    post:
-      tags:
-      - solicitud_descuento
-      description: create SolicitudDescuento
-      operationId: SolicitudDescuentoController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for SolicitudDescuento content
-        required: true
-        schema:
-          $ref: '#/definitions/models.SolicitudDescuento'
-      responses:
-        "201":
-          description: '{int} models.SolicitudDescuento'
-        "403":
-          description: body is empty
-  /solicitud_descuento/{id}:
-    get:
-      tags:
-      - solicitud_descuento
-      description: get SolicitudDescuento by id
-      operationId: SolicitudDescuentoController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.SolicitudDescuento'
-        "403":
-          description: :id is empty
-    put:
-      tags:
-      - solicitud_descuento
-      description: update the SolicitudDescuento
-      operationId: SolicitudDescuentoController.Put
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for SolicitudDescuento content
-        required: true
-        schema:
-          $ref: '#/definitions/models.SolicitudDescuento'
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.SolicitudDescuento'
-        "403":
-          description: :id is not int
-    delete:
-      tags:
-      - solicitud_descuento
-      description: delete the SolicitudDescuento
-      operationId: SolicitudDescuentoController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "403":
-          description: id is empty
-  /soporte_descuento/:
-    get:
-      tags:
-      - soporte_descuento
-      description: get SoporteDescuento
-      operationId: SoporteDescuentoController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.SoporteDescuento'
-        "403":
-          description: ""
-    post:
-      tags:
-      - soporte_descuento
-      description: create SoporteDescuento
-      operationId: SoporteDescuentoController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for SoporteDescuento content
-        required: true
-        schema:
-          $ref: '#/definitions/models.SoporteDescuento'
-      responses:
-        "201":
-          description: '{int} models.SoporteDescuento'
-        "403":
-          description: body is empty
-  /soporte_descuento/{id}:
-    get:
-      tags:
-      - soporte_descuento
-      description: get SoporteDescuento by id
-      operationId: SoporteDescuentoController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.SoporteDescuento'
-        "403":
-          description: :id is empty
-    put:
-      tags:
-      - soporte_descuento
-      description: update the SoporteDescuento
-      operationId: SoporteDescuentoController.Put
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for SoporteDescuento content
-        required: true
-        schema:
-          $ref: '#/definitions/models.SoporteDescuento'
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.SoporteDescuento'
-        "403":
-          description: :id is not int
-    delete:
-      tags:
-      - soporte_descuento
-      description: delete the SoporteDescuento
-      operationId: SoporteDescuentoController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "403":
-          description: id is empty
-  /tipo_descuento/:
-    get:
-      tags:
-      - tipo_descuento
-      description: get TipoDescuento
-      operationId: TipoDescuentoController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.TipoDescuento'
-        "403":
-          description: ""
-    post:
-      tags:
-      - tipo_descuento
-      description: create TipoDescuento
-      operationId: TipoDescuentoController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for TipoDescuento content
-        required: true
-        schema:
-          $ref: '#/definitions/models.TipoDescuento'
-      responses:
-        "201":
-          description: '{int} models.TipoDescuento'
-        "403":
-          description: body is empty
-  /tipo_descuento/{id}:
-    get:
-      tags:
-      - tipo_descuento
-      description: get TipoDescuento by id
-      operationId: TipoDescuentoController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.TipoDescuento'
-        "403":
-          description: :id is empty
-    put:
-      tags:
-      - tipo_descuento
-      description: update the TipoDescuento
-      operationId: TipoDescuentoController.Put
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for TipoDescuento content
-        required: true
-        schema:
-          $ref: '#/definitions/models.TipoDescuento'
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.TipoDescuento'
-        "403":
-          description: :id is not int
-    delete:
-      tags:
-      - tipo_descuento
-      description: delete the TipoDescuento
-      operationId: TipoDescuentoController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "403":
-          description: id is empty
-  /tipo_duracion/:
-    get:
-      tags:
-      - tipo_duracion
-      description: get TipoDuracion
-      operationId: TipoDuracionController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.TipoDuracion'
-        "403":
-          description: ""
-    post:
-      tags:
-      - tipo_duracion
-      description: create TipoDuracion
-      operationId: TipoDuracionController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for TipoDuracion content
-        required: true
-        schema:
-          $ref: '#/definitions/models.TipoDuracion'
-      responses:
-        "201":
-          description: '{int} models.TipoDuracion'
-        "403":
-          description: body is empty
-  /tipo_duracion/{id}:
-    get:
-      tags:
-      - tipo_duracion
-      description: get TipoDuracion by id
-      operationId: TipoDuracionController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.TipoDuracion'
-        "403":
-          description: :id is empty
-    put:
-      tags:
-      - tipo_duracion
-      description: update the TipoDuracion
-      operationId: TipoDuracionController.Put
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to update
-        required: true
-        type: string
-      - in: body
-        name: body
-        description: body for TipoDuracion content
-        required: true
-        schema:
-          $ref: '#/definitions/models.TipoDuracion'
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.TipoDuracion'
-        "403":
-          description: :id is not int
-    delete:
-      tags:
-      - tipo_duracion
-      description: delete the TipoDuracion
-      operationId: TipoDuracionController.Delete
-      parameters:
-      - in: path
-        name: id
-        description: The id you want to delete
-        required: true
-        type: string
-      responses:
-        "200":
-          description: '{string} delete success!'
-        "403":
-          description: id is empty
-  /validacion_descuento/:
-    get:
-      tags:
-      - validacion_descuento
-      description: get ValidacionDescuento
-      operationId: ValidacionDescuentoController.Get All
-      parameters:
-      - in: query
-        name: query
-        description: Filter. e.g. col1:v1,col2:v2 ...
-        type: string
-      - in: query
-        name: fields
-        description: Fields returned. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: sortby
-        description: Sorted-by fields. e.g. col1,col2 ...
-        type: string
-      - in: query
-        name: order
-        description: Order corresponding to each sortby field, if single value, apply
-          to all sortby fields. e.g. desc,asc ...
-        type: string
-      - in: query
-        name: limit
-        description: Limit the size of result set. Must be an integer
-        type: string
-      - in: query
-        name: offset
-        description: Start position of result set. Must be an integer
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.ValidacionDescuento'
-        "403":
-          description: ""
-    post:
-      tags:
-      - validacion_descuento
-      description: create ValidacionDescuento
-      operationId: ValidacionDescuentoController.Post
-      parameters:
-      - in: body
-        name: body
-        description: body for ValidacionDescuento content
-        required: true
-        schema:
-          $ref: '#/definitions/models.ValidacionDescuento'
-      responses:
-        "201":
-          description: '{int} models.ValidacionDescuento'
-        "403":
-          description: body is empty
-  /validacion_descuento/{id}:
-    get:
-      tags:
-      - validacion_descuento
-      description: get ValidacionDescuento by id
-      operationId: ValidacionDescuentoController.Get One
-      parameters:
-      - in: path
-        name: id
-        description: The key for staticblock
-        required: true
-        type: string
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/models.ValidacionDescuento'
-        "403":
-          description: :id is empty
-    put:
-      tags:
-      - validacion_descuento
-      description: update the ValidacionDescuento
-      operationId: ValidacionDescuentoController.Put
       parameters:
       - in: path
         name: id
@@ -1833,18 +1018,11 @@ paths:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.ValidacionDescuento'
-        "403":
-          description: :id is not int
-    delete:
-      tags:
-=======
             $ref: '#/definitions/models.ValidacionDescuento'
         "400":
           description: the request contains incorrect syntax
     delete:
       tags:
->>>>>>> develop
       - validacion_descuento
       description: delete the ValidacionDescuento
       operationId: ValidacionDescuentoController.Delete
@@ -1871,33 +1049,21 @@ definitions:
         format: int64
       FechaCreacion:
         type: string
-<<<<<<< HEAD
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
-=======
-      FechaModificacion:
-        type: string
->>>>>>> develop
       Id:
         type: integer
         format: int64
       PeriodoId:
         type: integer
         format: int64
-<<<<<<< HEAD
       PorcentajeDescuento:
         type: number
         format: double
-=======
->>>>>>> develop
       TipoDescuentoId:
         $ref: '#/definitions/models.TipoDescuento'
   models.Requisito:
     title: Requisito
-<<<<<<< HEAD
-=======
     type: object
     properties:
       Activo:
@@ -1955,7 +1121,7 @@ definitions:
       PeriodoId:
         type: integer
         format: int64
-      PersonaId:
+      TerceroId:
         type: integer
         format: int64
   models.SoporteDescuento:
@@ -1978,112 +1144,20 @@ definitions:
         $ref: '#/definitions/models.SolicitudDescuento'
   models.TipoDependenciaDescuento:
     title: TipoDependenciaDescuento
->>>>>>> develop
     type: object
     properties:
       Activo:
         type: boolean
-<<<<<<< HEAD
-      CodigoAbreviacion:
-        type: string
-      Descripcion:
-        type: string
-      FechaCreacion:
-=======
       FechaCreacion:
         type: string
       FechaFin:
         type: string
         format: datetime
       FechaInicio:
->>>>>>> develop
         type: string
         format: datetime
       FechaModificacion:
         type: string
-<<<<<<< HEAD
-        format: datetime
-      Id:
-        type: integer
-        format: int64
-      Nombre:
-        type: string
-      NumeroOrden:
-        type: number
-        format: double
-  models.RequisitoTipoDescuento:
-    title: RequisitoTipoDescuento
-    type: object
-    properties:
-      Activo:
-        type: boolean
-      FechaCreacion:
-        type: string
-        format: datetime
-      FechaModificacion:
-        type: string
-        format: datetime
-      Id:
-        type: integer
-        format: int64
-      RequisitoId:
-        $ref: '#/definitions/models.Requisito'
-      TipoDescuentoId:
-        $ref: '#/definitions/models.TipoDescuento'
-  models.SolicitudDescuento:
-    title: SolicitudDescuento
-    type: object
-    properties:
-      Activo:
-        type: boolean
-      DescuentosDependenciaId:
-        $ref: '#/definitions/models.DescuentosDependencia'
-      Estado:
-        type: string
-      FechaCreacion:
-        type: string
-        format: datetime
-      FechaModificacion:
-        type: string
-        format: datetime
-      Id:
-        type: integer
-        format: int64
-      PeriodoId:
-        type: integer
-        format: int64
-      PersonaId:
-        type: integer
-        format: int64
-  models.SoporteDescuento:
-    title: SoporteDescuento
-    type: object
-    properties:
-      Activo:
-        type: boolean
-      DocumentoId:
-        type: integer
-        format: int64
-      FechaCreacion:
-        type: string
-        format: datetime
-      FechaModificacion:
-        type: string
-        format: datetime
-      Id:
-        type: integer
-        format: int64
-      SolicitudDescuentoId:
-        $ref: '#/definitions/models.SolicitudDescuento'
-  models.TipoDescuento:
-    title: TipoDescuento
-    type: object
-    properties:
-      Activo:
-        type: boolean
-      CodigoAbreviacion:
-        type: string
-=======
       Id:
         type: integer
         format: int64
@@ -2105,7 +1179,6 @@ definitions:
         type: boolean
       CodigoAbreviacion:
         type: string
->>>>>>> develop
       ConceptoAcademicoId:
         type: integer
         format: int64
@@ -2113,15 +1186,8 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-<<<<<<< HEAD
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
-=======
-      FechaModificacion:
-        type: string
->>>>>>> develop
       General:
         type: boolean
       Id:
@@ -2144,15 +1210,8 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-<<<<<<< HEAD
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
-=======
-      FechaModificacion:
-        type: string
->>>>>>> develop
       Id:
         type: integer
         format: int64
@@ -2171,15 +1230,8 @@ definitions:
         type: boolean
       FechaCreacion:
         type: string
-<<<<<<< HEAD
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
-=======
-      FechaModificacion:
-        type: string
->>>>>>> develop
       Id:
         type: integer
         format: int64
@@ -2193,11 +1245,7 @@ definitions:
       ValorBase:
         type: number
         format: double
-<<<<<<< HEAD
-      ValorConDecuento:
-=======
       ValorConDescuento:
->>>>>>> develop
         type: number
         format: double
 tags:
@@ -2220,13 +1268,6 @@ tags:
   description: |
     TipoDescuentoController operations for TipoDescuento
 - name: descuentos_dependencia
-<<<<<<< HEAD
-  description: |
-    DescuentosDependenciaController operations for DescuentosDependencia
-- name: solicitud_descuento
-  description: |
-    SolicitudDescuentoController operations for SolicitudDescuento
-=======
   description: |
     DescuentosDependenciaController operations for DescuentosDependencia
 - name: solicitud_descuento
@@ -2235,4 +1276,3 @@ tags:
 - name: tipo_dependencia_descuento
   description: |
     TipoDependenciaDescuentoController operations for TipoDependenciaDescuento
->>>>>>> develop
