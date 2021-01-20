@@ -11,13 +11,14 @@ import (
 )
 
 type DescuentosDependencia struct {
-	Id                int            `orm:"column(id);pk;auto"`
-	DependenciaId     int            `orm:"column(dependencia_id)"`
-	PeriodoId         int            `orm:"column(periodo_id)"`
-	Activo            bool           `orm:"column(activo)"`
-	TipoDescuentoId   *TipoDescuento `orm:"column(tipo_descuento_id);rel(fk)"`
-	FechaCreacion     string         `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion string         `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                  int            `orm:"column(id);pk;auto"`
+	DependenciaId       int            `orm:"column(dependencia_id)"`
+	PeriodoId           int            `orm:"column(periodo_id)"`
+	PorcentajeDescuento float64        `orm:"column(porcentaje_descuento)"`
+	Activo              bool           `orm:"column(activo)"`
+	TipoDescuentoId     *TipoDescuento `orm:"column(tipo_descuento_id);rel(fk)"`
+	FechaCreacion       string         `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion   string         `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *DescuentosDependencia) TableName() string {

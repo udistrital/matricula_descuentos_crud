@@ -342,1047 +342,6 @@
                 ],
                 "description": "delete the Requisito",
                 "operationId": "RequisitoController.Delete",
-<<<<<<< HEAD
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/requisito_tipo_descuento/": {
-            "get": {
-                "tags": [
-                    "requisito_tipo_descuento"
-                ],
-                "description": "get RequisitoTipoDescuento",
-                "operationId": "RequisitoTipoDescuentoController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.RequisitoTipoDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ""
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "requisito_tipo_descuento"
-                ],
-                "description": "create RequisitoTipoDescuento",
-                "operationId": "RequisitoTipoDescuentoController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for RequisitoTipoDescuento content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.RequisitoTipoDescuento"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.RequisitoTipoDescuento"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/requisito_tipo_descuento/{id}": {
-            "get": {
-                "tags": [
-                    "requisito_tipo_descuento"
-                ],
-                "description": "get RequisitoTipoDescuento by id",
-                "operationId": "RequisitoTipoDescuentoController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.RequisitoTipoDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "requisito_tipo_descuento"
-                ],
-                "description": "update the RequisitoTipoDescuento",
-                "operationId": "RequisitoTipoDescuentoController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for RequisitoTipoDescuento content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.RequisitoTipoDescuento"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.RequisitoTipoDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "requisito_tipo_descuento"
-                ],
-                "description": "delete the RequisitoTipoDescuento",
-                "operationId": "RequisitoTipoDescuentoController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/solicitud_descuento/": {
-            "get": {
-                "tags": [
-                    "solicitud_descuento"
-                ],
-                "description": "get SolicitudDescuento",
-                "operationId": "SolicitudDescuentoController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.SolicitudDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ""
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "solicitud_descuento"
-                ],
-                "description": "create SolicitudDescuento",
-                "operationId": "SolicitudDescuentoController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for SolicitudDescuento content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.SolicitudDescuento"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.SolicitudDescuento"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/solicitud_descuento/{id}": {
-            "get": {
-                "tags": [
-                    "solicitud_descuento"
-                ],
-                "description": "get SolicitudDescuento by id",
-                "operationId": "SolicitudDescuentoController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.SolicitudDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "solicitud_descuento"
-                ],
-                "description": "update the SolicitudDescuento",
-                "operationId": "SolicitudDescuentoController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for SolicitudDescuento content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.SolicitudDescuento"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.SolicitudDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "solicitud_descuento"
-                ],
-                "description": "delete the SolicitudDescuento",
-                "operationId": "SolicitudDescuentoController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/soporte_descuento/": {
-            "get": {
-                "tags": [
-                    "soporte_descuento"
-                ],
-                "description": "get SoporteDescuento",
-                "operationId": "SoporteDescuentoController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.SoporteDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ""
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "soporte_descuento"
-                ],
-                "description": "create SoporteDescuento",
-                "operationId": "SoporteDescuentoController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for SoporteDescuento content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.SoporteDescuento"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.SoporteDescuento"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/soporte_descuento/{id}": {
-            "get": {
-                "tags": [
-                    "soporte_descuento"
-                ],
-                "description": "get SoporteDescuento by id",
-                "operationId": "SoporteDescuentoController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.SoporteDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "soporte_descuento"
-                ],
-                "description": "update the SoporteDescuento",
-                "operationId": "SoporteDescuentoController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for SoporteDescuento content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.SoporteDescuento"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.SoporteDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "soporte_descuento"
-                ],
-                "description": "delete the SoporteDescuento",
-                "operationId": "SoporteDescuentoController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/tipo_descuento/": {
-            "get": {
-                "tags": [
-                    "tipo_descuento"
-                ],
-                "description": "get TipoDescuento",
-                "operationId": "TipoDescuentoController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ""
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "tipo_descuento"
-                ],
-                "description": "create TipoDescuento",
-                "operationId": "TipoDescuentoController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for TipoDescuento content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoDescuento"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.TipoDescuento"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/tipo_descuento/{id}": {
-            "get": {
-                "tags": [
-                    "tipo_descuento"
-                ],
-                "description": "get TipoDescuento by id",
-                "operationId": "TipoDescuentoController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "tipo_descuento"
-                ],
-                "description": "update the TipoDescuento",
-                "operationId": "TipoDescuentoController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for TipoDescuento content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoDescuento"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "tipo_descuento"
-                ],
-                "description": "delete the TipoDescuento",
-                "operationId": "TipoDescuentoController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/tipo_duracion/": {
-            "get": {
-                "tags": [
-                    "tipo_duracion"
-                ],
-                "description": "get TipoDuracion",
-                "operationId": "TipoDuracionController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoDuracion"
-                        }
-                    },
-                    "403": {
-                        "description": ""
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "tipo_duracion"
-                ],
-                "description": "create TipoDuracion",
-                "operationId": "TipoDuracionController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for TipoDuracion content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoDuracion"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.TipoDuracion"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/tipo_duracion/{id}": {
-            "get": {
-                "tags": [
-                    "tipo_duracion"
-                ],
-                "description": "get TipoDuracion by id",
-                "operationId": "TipoDuracionController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoDuracion"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "tipo_duracion"
-                ],
-                "description": "update the TipoDuracion",
-                "operationId": "TipoDuracionController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for TipoDuracion content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoDuracion"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.TipoDuracion"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "tipo_duracion"
-                ],
-                "description": "delete the TipoDuracion",
-                "operationId": "TipoDuracionController.Delete",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to delete",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{string} delete success!"
-                    },
-                    "403": {
-                        "description": "id is empty"
-                    }
-                }
-            }
-        },
-        "/validacion_descuento/": {
-            "get": {
-                "tags": [
-                    "validacion_descuento"
-                ],
-                "description": "get ValidacionDescuento",
-                "operationId": "ValidacionDescuentoController.Get All",
-                "parameters": [
-                    {
-                        "in": "query",
-                        "name": "query",
-                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "fields",
-                        "description": "Fields returned. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "sortby",
-                        "description": "Sorted-by fields. e.g. col1,col2 ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "order",
-                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "limit",
-                        "description": "Limit the size of result set. Must be an integer",
-                        "type": "string"
-                    },
-                    {
-                        "in": "query",
-                        "name": "offset",
-                        "description": "Start position of result set. Must be an integer",
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.ValidacionDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ""
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "validacion_descuento"
-                ],
-                "description": "create ValidacionDescuento",
-                "operationId": "ValidacionDescuentoController.Post",
-                "parameters": [
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for ValidacionDescuento content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.ValidacionDescuento"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "{int} models.ValidacionDescuento"
-                    },
-                    "403": {
-                        "description": "body is empty"
-                    }
-                }
-            }
-        },
-        "/validacion_descuento/{id}": {
-            "get": {
-                "tags": [
-                    "validacion_descuento"
-                ],
-                "description": "get ValidacionDescuento by id",
-                "operationId": "ValidacionDescuentoController.Get One",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The key for staticblock",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.ValidacionDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is empty"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "validacion_descuento"
-                ],
-                "description": "update the ValidacionDescuento",
-                "operationId": "ValidacionDescuentoController.Put",
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "id",
-                        "description": "The id you want to update",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "body",
-                        "name": "body",
-                        "description": "body for ValidacionDescuento content",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/models.ValidacionDescuento"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/models.ValidacionDescuento"
-                        }
-                    },
-                    "403": {
-                        "description": ":id is not int"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "validacion_descuento"
-                ],
-                "description": "delete the ValidacionDescuento",
-                "operationId": "ValidacionDescuentoController.Delete",
-=======
->>>>>>> develop
                 "parameters": [
                     {
                         "in": "path",
@@ -2627,19 +1586,10 @@
                     "format": "int64"
                 },
                 "FechaCreacion": {
-<<<<<<< HEAD
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
-=======
                     "type": "string"
                 },
                 "FechaModificacion": {
                     "type": "string"
->>>>>>> develop
                 },
                 "Id": {
                     "type": "integer",
@@ -2649,13 +1599,10 @@
                     "type": "integer",
                     "format": "int64"
                 },
-<<<<<<< HEAD
                 "PorcentajeDescuento": {
                     "type": "number",
                     "format": "double"
                 },
-=======
->>>>>>> develop
                 "TipoDescuentoId": {
                     "$ref": "#/definitions/models.TipoDescuento"
                 }
@@ -2675,19 +1622,10 @@
                     "type": "string"
                 },
                 "FechaCreacion": {
-<<<<<<< HEAD
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
-=======
                     "type": "string"
                 },
                 "FechaModificacion": {
                     "type": "string"
->>>>>>> develop
                 },
                 "Id": {
                     "type": "integer",
@@ -2710,19 +1648,10 @@
                     "type": "boolean"
                 },
                 "FechaCreacion": {
-<<<<<<< HEAD
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
-=======
                     "type": "string"
                 },
                 "FechaModificacion": {
                     "type": "string"
->>>>>>> develop
                 },
                 "Id": {
                     "type": "integer",
@@ -2750,19 +1679,10 @@
                     "type": "string"
                 },
                 "FechaCreacion": {
-<<<<<<< HEAD
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
-=======
                     "type": "string"
                 },
                 "FechaModificacion": {
                     "type": "string"
->>>>>>> develop
                 },
                 "Id": {
                     "type": "integer",
@@ -2772,7 +1692,7 @@
                     "type": "integer",
                     "format": "int64"
                 },
-                "PersonaId": {
+                "TerceroId": {
                     "type": "integer",
                     "format": "int64"
                 }
@@ -2786,19 +1706,6 @@
                     "type": "boolean"
                 },
                 "DocumentoId": {
-<<<<<<< HEAD
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "FechaCreacion": {
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
-                },
-=======
                     "type": "integer",
                     "format": "int64"
                 },
@@ -2838,15 +1745,10 @@
                 "FechaModificacion": {
                     "type": "string"
                 },
->>>>>>> develop
                 "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
-<<<<<<< HEAD
-                "SolicitudDescuentoId": {
-                    "$ref": "#/definitions/models.SolicitudDescuento"
-=======
                 "PorcentajeDescuento": {
                     "type": "number",
                     "format": "double"
@@ -2860,7 +1762,6 @@
                 },
                 "Vigencia": {
                     "type": "string"
->>>>>>> develop
                 }
             }
         },
@@ -2882,19 +1783,10 @@
                     "type": "string"
                 },
                 "FechaCreacion": {
-<<<<<<< HEAD
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
-=======
                     "type": "string"
                 },
                 "FechaModificacion": {
                     "type": "string"
->>>>>>> develop
                 },
                 "General": {
                     "type": "boolean"
@@ -2926,19 +1818,10 @@
                     "type": "string"
                 },
                 "FechaCreacion": {
-<<<<<<< HEAD
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
-=======
                     "type": "string"
                 },
                 "FechaModificacion": {
                     "type": "string"
->>>>>>> develop
                 },
                 "Id": {
                     "type": "integer",
@@ -2964,19 +1847,10 @@
                     "type": "boolean"
                 },
                 "FechaCreacion": {
-<<<<<<< HEAD
-                    "type": "string",
-                    "format": "datetime"
-                },
-                "FechaModificacion": {
-                    "type": "string",
-                    "format": "datetime"
-=======
                     "type": "string"
                 },
                 "FechaModificacion": {
                     "type": "string"
->>>>>>> develop
                 },
                 "Id": {
                     "type": "integer",
@@ -2996,11 +1870,7 @@
                     "type": "number",
                     "format": "double"
                 },
-<<<<<<< HEAD
-                "ValorConDecuento": {
-=======
                 "ValorConDescuento": {
->>>>>>> develop
                     "type": "number",
                     "format": "double"
                 }
@@ -3035,12 +1905,6 @@
         {
             "name": "descuentos_dependencia",
             "description": "DescuentosDependenciaController operations for DescuentosDependencia\n"
-<<<<<<< HEAD
-        },
-        {
-            "name": "solicitud_descuento",
-            "description": "SolicitudDescuentoController operations for SolicitudDescuento\n"
-=======
         },
         {
             "name": "solicitud_descuento",
@@ -3049,7 +1913,6 @@
         {
             "name": "tipo_dependencia_descuento",
             "description": "TipoDependenciaDescuentoController operations for TipoDependenciaDescuento\n"
->>>>>>> develop
         }
     ]
 }
