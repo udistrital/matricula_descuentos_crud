@@ -5,7 +5,6 @@ workspace:
       branch:
       - develop
       - release
-      - planestic
       - master
 
 kind: pipeline
@@ -33,7 +32,6 @@ steps:
     - develop
     - feature/*
     - release
-    - planestic
     event:
     - push
 
@@ -46,7 +44,6 @@ steps:
     - develop
     - feature/*
     - release
-    - planestic
     event:
     - push
 
@@ -62,7 +59,6 @@ steps:
     - release/*
     - feature/*
     - release
-    - planestic
     - master
     event:
     - push
@@ -85,7 +81,6 @@ steps:
     - develop
     - feature/*
     - release
-    - planestic
     - master
     event:
     - push
@@ -179,25 +174,6 @@ steps:
     event:
     - push
 
-- name: publish_to_ecr_planestic
-  image: plugins/ecr
-  settings:
-    access_key:
-      from_secret: AWS_ACCESS_KEY_ID
-    secret_key:
-      from_secret: AWS_SECRET_ACCESS_KEY
-    region:
-      from_secret: AWS_REGION
-    repo: ${DRONE_REPO##udistrital/}
-    tags:
-      - ${DRONE_COMMIT:0:7}
-      - planestic
-  when:
-    branch:
-    - planestic
-    event:
-    - push
-
 - name: update_aws_ecs
   image: golang:1.9
   environment:
@@ -213,11 +189,6 @@ steps:
          AMBIENTE=test
          CLUSTER=test
          MYCONTAINER=$${AWS_CONTAINER}/${DRONE_REPO##udistrital/}:release
-         ;;
-       planestic)
-         AMBIENTE=prod
-         CLUSTER=oas
-         MYCONTAINER=$${AWS_CONTAINER}/${DRONE_REPO##udistrital/}:planestic
          ;;
        master)
          AMBIENTE=prod
@@ -237,7 +208,6 @@ steps:
   when:
     branch:
     - release
-    - planestic
     - master
     event:
     - push
@@ -270,7 +240,6 @@ steps:
     branch:
     - develop
     - release
-    - planestic
     - master
     event:
     - push
