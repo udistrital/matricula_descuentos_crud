@@ -5,7 +5,7 @@ workspace:
       branch:
       - develop
       - release/*
-      - master
+      - main
 
 kind: pipeline
 name: oas_api_ci
@@ -57,7 +57,7 @@ steps:
     branch:
     - develop
     - release/*
-    - master
+    - main
     event:
     - push
 
@@ -78,7 +78,7 @@ steps:
     branch:
     - develop
     - release/*
-    - master
+    - main
     event:
     - push
 
@@ -151,7 +151,7 @@ steps:
     event:
     - push
 
-- name: publish_to_ecr_master
+- name: publish_to_ecr_main
   image: plugins/ecr
   settings:
     access_key:
@@ -166,7 +166,7 @@ steps:
       - latest
   when:
     branch:
-    - master
+    - main
     event:
     - push
 
@@ -186,7 +186,7 @@ steps:
          CLUSTER=test
          MYCONTAINER=$${AWS_CONTAINER}/${DRONE_REPO##udistrital/}:release
          ;;
-       master)
+       main)
          AMBIENTE=prod
          CLUSTER=oas
          MYCONTAINER=$${AWS_CONTAINER}/${DRONE_REPO##udistrital/}:latest
@@ -204,7 +204,7 @@ steps:
   when:
     branch:
     - release/*
-    - master
+    - main
     event:
     - push
 
@@ -236,7 +236,7 @@ steps:
     branch:
     - develop
     - release/*
-    - master
+    - main
     event:
     - push
     status:
