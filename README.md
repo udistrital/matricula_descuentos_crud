@@ -75,7 +75,7 @@ Pruebas unitarias
 
 | Develop | Relese 0.0.1 | Master |
 | -- | -- | -- |
-| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academica_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academica_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academica_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academica_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academica_crud/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academica_crud) |
+| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academico_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academico_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academico_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academico_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academico_crud/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academico_crud) |
 
 
 ## Modelo de Datos
