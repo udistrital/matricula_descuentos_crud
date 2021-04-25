@@ -100,7 +100,14 @@ func gen_files() {
 
 //@run_bee activa el servicio de la api para realizar los test
 func run_bee() {
-	parametros := "DESCUENTO_ACADEMICO_CRUD_HTTP_PORT=" + beego.AppConfig.String("httpport") + " DESCUENTO_ACADEMICO_CRUD__PGUSER=" + beego.AppConfig.String("PGuser") + " DESCUENTO_ACADEMICO_CRUD__PGPASS=" + beego.AppConfig.String("PGpass") + " DESCUENTO_ACADEMICO_CRUD__PGURLS=" + beego.AppConfig.String("PGurls") + " DESCUENTO_ACADEMICO_CRUD__PGDB=" + beego.AppConfig.String("PGdb") + " DESCUENTO_ACADEMICO_CRUD__SCHEMA=" + beego.AppConfig.String("PGschemas") + " bee run"
+	parametros := "DESCUENTO_ACADEMICO_CRUD_HTTP_PORT=" + beego.AppConfig.String("httpport") +
+		" DESCUENTO_ACADEMICO_CRUD__PGUSER=" + beego.AppConfig.String("PGuser") +
+		" DESCUENTO_ACADEMICO_CRUD__PGPASS=" + beego.AppConfig.String("PGpass") +
+		" DESCUENTO_ACADEMICO_CRUD__PGHOST=" + beego.AppConfig.String("PGurls") +
+		" DESCUENTO_ACADEMICO_CRUD__PGPORT=" + beego.AppConfig.String("PGport") +
+		" DESCUENTO_ACADEMICO_CRUD__PGDB=" + beego.AppConfig.String("PGdb") +
+		" DESCUENTO_ACADEMICO_CRUD__SCHEMA=" + beego.AppConfig.String("PGschemas") + " bee run"
+
 	file, err := os.Create("script.sh")
 	if err != nil {
 		log.Fatal("Cannot create file", err)

@@ -1,5 +1,5 @@
 # descuento_academica_crud
-El API provee la gestion de las diferentes descuentos que puede tener un tercero en el Sistema de Gestión Académico
+El API provee la gestion de las diferentes descuentos que puede tener un tercero en el Sistema de Gestión Académica
 
 ## Especificaciones Técnicas
 
@@ -11,11 +11,12 @@ El API provee la gestion de las diferentes descuentos que puede tener un tercero
 
 ### Variables de Entorno
 ```shell
-DESCUENTO_ACADEMICO_CRUD__PGDB=[nombre de la base de datos]
-DESCUENTO_ACADEMICO_CRUD__PGPASS=[password del usuario]
-DESCUENTO_ACADEMICO_CRUD__PGURLS=[direccion de la base de datos]
-DESCUENTO_ACADEMICO_CRUD__PGUSER=[usuario con acceso a la base de datos]
-DESCUENTO_ACADEMICO_CRUD__SCHEMA=[esquema donde se ubican las tablas]
+DESCUENTO_ACADEMICO_CRUD_PGDB=[nombre de la base de datos]
+DESCUENTO_ACADEMICO_CRUD_PGPASS=[password del usuario]
+DESCUENTO_ACADEMICO_CRUD_PGHOST=[direccion de la base de datos]
+DESCUENTO_ACADEMICO_CRUD_PGPORT=[puerto de conexión con la base de datos]
+DESCUENTO_ACADEMICO_CRUD_PGUSER=[usuario con acceso a la base de datos]
+DESCUENTO_ACADEMICO_CRUD_SCHEMA=[esquema donde se ubican las tablas]
 DESCUENTO_ACADEMICO_CRUD_HTTP_PORT=[puerto de ejecucion] bee run
 ```
 
@@ -33,7 +34,7 @@ cd $GOPATH/src/github.com/udistrital/descuento_academica_crud
 git pull origin develop && git checkout develop
 
 # 4. alimentar todas las variables de entorno que utiliza el proyecto.
-DESCUENTO_ACADEMICO_CRUD_HTTP_PORT=8080DESCUENTO_ACADEMICO_CRUD_DB_HOST=127.0.0.1:27017 DESCUENTO_ACADEMICO_CRUD_SOME_VARIABLE=some_value bee run
+DESCUENTO_ACADEMICO_CRUD_HTTP_PORT=8080 DESCUENTO_ACADEMICO_CRUD_PGHOST=127.0.0.1:27017 DESCUENTO_ACADEMICO_CRUD_SOME_VARIABLE=some_value bee run
 ```
 
 ### Ejecución Dockerfile
