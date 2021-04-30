@@ -1,5 +1,5 @@
 # descuento_academica_crud
-El API provee la gestion de las diferentes descuentos que puede tener un tercero en el Sistema de Gestión Académico
+El API provee la gestion de las diferentes descuentos que puede tener un tercero en el Sistema de Gestión Académica
 
 ## Especificaciones Técnicas
 
@@ -11,11 +11,12 @@ El API provee la gestion de las diferentes descuentos que puede tener un tercero
 
 ### Variables de Entorno
 ```shell
-DESCUENTO_ACADEMICO_CRUD__PGDB=[nombre de la base de datos]
-DESCUENTO_ACADEMICO_CRUD__PGPASS=[password del usuario]
-DESCUENTO_ACADEMICO_CRUD__PGURLS=[direccion de la base de datos]
-DESCUENTO_ACADEMICO_CRUD__PGUSER=[usuario con acceso a la base de datos]
-DESCUENTO_ACADEMICO_CRUD__SCHEMA=[esquema donde se ubican las tablas]
+DESCUENTO_ACADEMICO_CRUD_PGDB=[nombre de la base de datos]
+DESCUENTO_ACADEMICO_CRUD_PGPASS=[password del usuario]
+DESCUENTO_ACADEMICO_CRUD_PGHOST=[direccion de la base de datos]
+DESCUENTO_ACADEMICO_CRUD_PGPORT=[puerto de conexión con la base de datos]
+DESCUENTO_ACADEMICO_CRUD_PGUSER=[usuario con acceso a la base de datos]
+DESCUENTO_ACADEMICO_CRUD_SCHEMA=[esquema donde se ubican las tablas]
 DESCUENTO_ACADEMICO_CRUD_HTTP_PORT=[puerto de ejecucion] bee run
 ```
 
@@ -33,7 +34,7 @@ cd $GOPATH/src/github.com/udistrital/descuento_academica_crud
 git pull origin develop && git checkout develop
 
 # 4. alimentar todas las variables de entorno que utiliza el proyecto.
-DESCUENTO_ACADEMICO_CRUD_HTTP_PORT=8080DESCUENTO_ACADEMICO_CRUD_DB_HOST=127.0.0.1:27017 DESCUENTO_ACADEMICO_CRUD_SOME_VARIABLE=some_value bee run
+DESCUENTO_ACADEMICO_CRUD_HTTP_PORT=8080 DESCUENTO_ACADEMICO_CRUD_PGHOST=127.0.0.1:27017 DESCUENTO_ACADEMICO_CRUD_SOME_VARIABLE=some_value bee run
 ```
 
 ### Ejecución Dockerfile
@@ -72,9 +73,9 @@ Pruebas unitarias
 ```
 ## Estado CI
 
-| Develop | Relese 0.0.1 | Master |
-| -- | -- | -- |
-| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academica_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academica_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academica_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academica_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academica_crud/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academica_crud) |
+| Develop | Relese 0.0.1 | Master | Main |
+| -- | -- | -- | -- |
+| [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academico_crud/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academico_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academico_crud/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academico_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academico_crud/status.svg)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academico_crud) | [![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/descuento_academico_crud/status.svg?ref=refs/heads/main)](https://hubci.portaloas.udistrital.edu.co/udistrital/descuento_academico_crud) |
 
 
 ## Modelo de Datos
